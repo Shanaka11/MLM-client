@@ -109,3 +109,28 @@ body{
 .justify-center{
   align-items: center;
 }
+
+.list-search{
+  padding: 20px 0px;
+  margin: 10px 0;
+  display: flex;
+}
+
+.list-search-input{
+  width: 100%;
+}
+
+.list{
+  border: 1px solid #c2c2c2;
+  box-shadow: 0 0 6px #c2c2c2;
+}
+
+.list-item{
+  border-top: 1px solid #c2c2c2;
+  padding: 20px 10px;
+  cursor: pointer;
+}
+
+.list-item:hover{
+  background-color: #f0f0f0;
+}
