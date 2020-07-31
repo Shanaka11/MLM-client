@@ -2,13 +2,26 @@ import React, { useState } from 'react'
 import {Input} from '../components'
 
 const Login = () => {
-    const [username, setUsername] = useState()
-    const [password, setPassword] = useState()
+    const [credentials, setCredentials] = useState({
+        username : "",
+        password: ""
+    })
+
+    const handleChange = (event) => {
+        const {name, value} = event.target
+
+        setCredentials(prevValue => {
+            return{
+                ...prevValue,
+                [name]: value
+            }
+        })
+    }
 
     const handleLogin = (event) =>{
         event.preventDefault()
-        console.log(username)
-        console.log(password)
+        console.log(credentials.username)
+        console.log(credentials.password)
     }
 
     return (
@@ -18,17 +31,19 @@ const Login = () => {
                 <form onSubmit={handleLogin}>
                     <div className="input-group">
                         <Input  type="text" 
-                                setFinalValue={setUsername} 
+                                setFinalValue={handleChange}
+                                name = "username" 
                                 placeholder="Username" 
-                                initialValue={username} 
+                                initialValue={credentials.username} 
                                 reset="FALSE"
                                 required/>
                     </div>
                     <div className="input-group">
                         <Input  type="password" 
-                                setFinalValue={setPassword} 
+                                setFinalValue={handleChange} 
+                                name = "password"
                                 placeholder="Password" 
-                                initialValue={password} 
+                                initialValue={credentials.password} 
                                 reset="FALSE"
                                 required/>
                     </div>

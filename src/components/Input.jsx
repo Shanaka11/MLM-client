@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const Input = ({type, setFinalValue, placeholder, initialValue, reset, required}) => { 
+const Input = ({type, setFinalValue, name, placeholder, initialValue, reset, required}) => { 
 
     const [value, setValue] = useState(reset === "TRUE" ? "" : (initialValue ? initialValue : ""))
 
@@ -9,18 +9,19 @@ const Input = ({type, setFinalValue, placeholder, initialValue, reset, required}
     }
 
     const handleOnBlur = (event) => {
-        setFinalValue(event.target.value)
+        setFinalValue(event)
     }
 
     const handleOnKeyPress = (event) => {
         if(event.keyCode === 13){
-            setFinalValue(value)
+            setFinalValue(event)
         }
     }
 
     return (
         <div>
-            <input  className="input-control" 
+            <input  className="input-control"
+                    name={name} 
                     type={type} 
                     placeholder=" "
                     onChange={handleOnChange}
