@@ -182,3 +182,58 @@ body{
 .margin-t-10{
   margin-top: 10rem !important;
 }
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width:100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modal-main {
+  position:fixed;
+  background: white;
+  width: 500px;
+  height: auto;
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);  
+}
+
+.display-block {
+  display: block;
+}
+
+.display-none {
+  display: none;
+}
+
+.modal-body{
+  padding: 10px 30px;
+}
+
+.modal-btn{
+  padding: 10px 30px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  width: 50%;  
+  height: 50px;
+}
+
+.modal-btn:hover{
+  background-color: rgb(201, 201, 201);
+}
+
+.modal-step{
+  width: 50%;
+  height: 8px;
+  margin: 1px;  
+  background-color: rgb(224, 224, 224);
+}
+
+.modal-step-active{
+  background-color: black;
+}
