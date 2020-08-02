@@ -13,6 +13,7 @@ const AddSales = ({children, show, handleClose, name}) => {
 
     const nextStep = (event) => {
         event.preventDefault()
+        // Create the Sale object here and send it to backend
         setStep(2)
     }
 
