@@ -3,11 +3,14 @@ import React from 'react'
 const SalesPersonBasicData = () => {
     return (
         <div className="container">
-            <h1>Salesperson Details</h1>            
+            <div className="d-flex">
+                <h1>Salesperson Details</h1>
+                <button className="btn ml-auto">ADD</button>
+            </div>
             {/* Search */}
             <div className="list-search">
-                <input className="list-search-input" type="text"/>
-                <button>Search</button>
+                <input className="input-control list-search-input" type="text"/>
+                <button className="btn">Search</button>
             </div>
             {/* List */}
             <div className="list">
