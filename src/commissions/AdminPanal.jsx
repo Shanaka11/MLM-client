@@ -8,7 +8,11 @@ import {BtnCard} from '../components'
 import {NewSales, NewSalesperson} from '../commissions/modals'
 import {Input} from '../components'
 
+import {useHistory} from "react-router-dom"
+
 const AdminPanal = () => {
+
+    let history = useHistory()
 
     const [modal, setModal] = useState({
         newSale: false,
@@ -61,6 +65,14 @@ const AdminPanal = () => {
         })        
     }
 
+    const redirect = (event) => {
+        if(event.name === "SalesList"){
+            history.push("/admin/sales")
+        }else{
+            history.push("/admin/salesperson")
+        }
+    }
+
     return (
         <div className="container">
             <h1>Admin Interface</h1>
@@ -73,7 +85,7 @@ const AdminPanal = () => {
                     </BtnCard>
                 </div>
                 <div className="col-3 d-flex center">
-                    <BtnCard>
+                    <BtnCard name="SalesList" onClickHandler={redirect}>
                         <Sales className="icon"/>
                         <h4 className="btn-card-header">View Sales</h4>
                         <p className="btn-card-desc">Show a list of all sales</p>
@@ -87,7 +99,7 @@ const AdminPanal = () => {
                     </BtnCard>
                 </div>
                 <div className="col-3 d-flex center">
-                    <BtnCard>
+                    <BtnCard name="SalespersonList" onClickHandler={redirect}>
                         <Salespersons className="icon"/>
                         <h4 className="btn-card-header">View Salesperson List</h4>
                         <p className="btn-card-desc">Show a list of all Salesperson</p>      

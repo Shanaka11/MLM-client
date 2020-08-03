@@ -1,21 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {Login} from './authentication'
 import {Navbar} from './nav'
 
 // For Testing
-import {AdminPanal} from './commissions'
-import {SalesBasicData, SalesPersonBasicData} from './commissions/basicdata'
+import {AdminContainer} from './commissions'
 
+import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
 function App() {
+
+  const [logged, setLogged] = useState(false)
+
   return (
     // <div className="App">
-      // <Login />
-      // <SalesPersonBasicData />
       <>
-      <Navbar />
-      {/* <AdminPanal /> */}
+      {logged && <Navbar />}
+       <Router>
+         <Switch>
+           <Route path="/" exact component={Login} />
+           <Route path="/admin" exact component={AdminContainer}/>
+        </Switch>
+      </Router>
       {/* <SalesBasicData /> */}
-      <SalesPersonBasicData />
+      {/* <SalesPersonBasicData /> */}
       </>
     // </div>
   );
