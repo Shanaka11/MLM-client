@@ -1,10 +1,13 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import {Input} from '../components'
 import { useHistory } from 'react-router-dom'
 
+import {AuthenticationContext} from '../context'
+
 const Login = () => {
-    // Replace this with context
-    const [logged, setLogged] = useState(true)
+
+    const {logged, role} = useContext(AuthenticationContext)
+
     const history = useHistory()
 
     const [credentials, setCredentials] = useState({
