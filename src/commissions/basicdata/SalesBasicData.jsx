@@ -153,7 +153,7 @@ const SalesBasicData = () => {
                 </NewSales>
             }
             {modalState.editSale &&
-                <EditSales name="editSale" show={modalState.editSale} handleClose={handleSalesModal}>
+                <EditSales name="editSale" show={modalState.editSale} handleClose={handleSalesModal} id={sales.saleId}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}
