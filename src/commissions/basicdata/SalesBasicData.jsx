@@ -46,7 +46,7 @@ const SalesBasicData = () => {
         setSales( prevValue => {
             return {
                 ...prevValue,
-                "saleId": item["saleId"],
+                "saleId": item.saleId,
                 "salespersonId": item.salespersonId,
                 "totalSales": item.totalSales,
                 "commission": item.commission

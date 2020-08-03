@@ -3,9 +3,8 @@ import {Login} from './authentication'
 import {Navbar} from './nav'
 
 // For Testing
-import SalesPersonBasicData from './commissions/basicdata/SalesPersonBasicData'
 import {AdminPanal} from './commissions'
-import {SalesBasicData} from './commissions/basicdata'
+import {SalesBasicData, SalesPersonBasicData} from './commissions/basicdata'
 
 function App() {
   return (
@@ -15,7 +14,8 @@ function App() {
       <>
       <Navbar />
       {/* <AdminPanal /> */}
-      <SalesBasicData />
+      {/* <SalesBasicData /> */}
+      <SalesPersonBasicData />
       </>
     // </div>
   );

@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const EditSales = ({children, show, handleClose, name, id}) => {
+const EditSalesperson = ({children, show, handleClose, name, id}) => {
     const [step, setStep] = useState(1)
 
     const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -31,7 +31,7 @@ const EditSales = ({children, show, handleClose, name, id}) => {
                 <form onSubmit={handleSubmit}>
                     <div className="modal-body">
                     {/* modal-header */}
-                        <h1>Sale Details - {id} </h1>
+                        <h1>Salesperson Details - {id} </h1>
                         {step === 1 ?
                             <> 
                             {children}
@@ -40,11 +40,11 @@ const EditSales = ({children, show, handleClose, name, id}) => {
                             <>
                                 {step === 2 ?                            
                                 <>
-                                <p>New Sales Item has being edited successfully</p>
+                                <p>New Salesperson has being edited successfully</p>
                                 </>
                                 :
                                 <>
-                                <p>Sales Item has being Removed successfully</p>
+                                <p>Salesperson has being Removed successfully</p>
                                 </>
                                 }
                             </>
@@ -85,4 +85,4 @@ const EditSales = ({children, show, handleClose, name, id}) => {
     )
 }
 
-export default EditSales
+export default EditSalesperson
