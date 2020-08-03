@@ -6,7 +6,7 @@ import {Navbar} from './nav'
 import {AdminPanal} from "./commissions"
 import {SalesBasicData, SalesPersonBasicData} from "./commissions/basicdata"
 
-import {BrowserRouter as Router, Switch, Route, useHistory} from 'react-router-dom'
+import { Switch, Route, useHistory} from 'react-router-dom'
 
 import {AuthenticationContext} from "./context"
 
