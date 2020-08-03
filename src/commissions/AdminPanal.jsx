@@ -5,20 +5,28 @@ import {ReactComponent as AddSalesperson} from '../Icons/male_add.svg'
 import {ReactComponent as Salespersons} from '../Icons/contract_agreement.svg'
 import {BtnCard} from '../components'
 
-import {NewSales} from '../commissions/modals'
+import {NewSales, NewSalesperson} from '../commissions/modals'
 import {Input} from '../components'
 
 const AdminPanal = () => {
 
     const [modal, setModal] = useState({
         newSale: false,
-        newSalesperson: false
+        newSalespersons: false
     })
 
     const [sales, setSales] = useState({
         salespersonId: "",
         totalSales: "",
         commission: ""
+    })
+
+    const [salesperson, setSalesperson] = useState({
+        name: "",
+        address: "",
+        cell:"",
+        sponserId:"",
+        realestateId:""
     })
 
     const setNew = (name) => {
@@ -30,7 +38,7 @@ const AdminPanal = () => {
         })
     }
 
-    const handleChange = (event) => {
+    const handleChangeSales = (event) => {
 
         const {name, value} = event.target
 
@@ -40,6 +48,17 @@ const AdminPanal = () => {
                 [name]: value
             }
         })
+    }
+    
+    const handleChangeSalesperson = (event) => {
+        const {name, value} = event.target
+
+        setSalesperson(prevValue => {
+            return {
+                ...prevValue,
+                [name]: value
+            }
+        })        
     }
 
     return (
@@ -61,7 +80,7 @@ const AdminPanal = () => {
                     </BtnCard>
                 </div>
                 <div className="col-3 d-flex center">
-                    <BtnCard name="newSalesperson" onClickHandler={setNew}>
+                    <BtnCard name="newSalespersons" onClickHandler={setNew}>
                         <AddSalesperson className="icon"/>
                         <h4 className="btn-card-header">Add Salesperson</h4>
                         <p className="btn-card-desc">Add a new Salesperson</p>                        
@@ -77,10 +96,10 @@ const AdminPanal = () => {
             </div>
             {/* Add Sales and Salesperson Dialogs */}
             {modal.newSale && 
-            <NewSales name="newSale" show={modal.newSale} handleClose={setNew}>
+                <NewSales name="newSale" show={modal.newSale} handleClose={setNew}>
                     <div className="input-group">
                         <Input  type="text" 
-                                setFinalValue={handleChange}
+                                setFinalValue={handleChangeSales}
                                 name = "salespersonId" 
                                 placeholder="Salesperson Id" 
                                 initialValue={sales.salespersonId} 
@@ -89,7 +108,7 @@ const AdminPanal = () => {
                     </div>
                     <div className="input-group">
                         <Input  type="number" 
-                                setFinalValue={handleChange} 
+                                setFinalValue={handleChangeSales} 
                                 name = "totalSales"
                                 placeholder="Total Sales" 
                                 initialValue={sales.totalSales} 
@@ -98,14 +117,63 @@ const AdminPanal = () => {
                     </div>
                     <div className="input-group">
                         <Input  type="number" 
-                                setFinalValue={handleChange} 
+                                setFinalValue={handleChangeSales} 
                                 name = "commission"
                                 placeholder="Commissions" 
                                 initialValue={sales.commission} 
                                 reset="FALSE"
                                 required/>
                     </div>                                       
-            </NewSales>
+                </NewSales>
+            }
+            {modal.newSalespersons && 
+                <NewSalesperson  name="newSalespersons" show={modal.newSalespersons} handleClose={setNew}>
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChangeSalesperson}
+                                name = "name" 
+                                placeholder="Name" 
+                                initialValue={salesperson.name} 
+                                reset="FALSE"
+                                required/>
+                    </div>
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "address"
+                                placeholder="Address" 
+                                initialValue={salesperson.address} 
+                                reset="FALSE"
+                                required/>
+                    </div>
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "cell"
+                                placeholder="Cell" 
+                                initialValue={salesperson.cell} 
+                                reset="FALSE"
+                                required/>
+                    </div>           
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "sponser"
+                                placeholder="Sopnser ID" 
+                                initialValue={salesperson.sponserId} 
+                                reset="FALSE"
+                                required/>
+                    </div>  
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "realestate"
+                                placeholder="Real Estate ID" 
+                                initialValue={salesperson.realestateId} 
+                                reset="FALSE"
+                                required/>
+                    </div>                                                       
+                </NewSalesperson>
             }
         </div>
     )

@@ -6,26 +6,22 @@ const AddSales = ({children, show, handleClose, name}) => {
 
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
-    const handleOnClick = () => {    
-        setStep(1)    
+    const modalOk = (event) => {
+        event.preventDefault()
+        setStep(1)
         handleClose(name)
     }
 
-    const nextStep = (event) => {
+    const handleSubmit = (event) =>{
         event.preventDefault()
-        // Create the Sale object here and send it to backend
         setStep(2)
-    }
-
-    const modalOk = () => {
-        setStep(1)
     }
 
     return (
         <div className={showHideClassName}>
             <section className="modal-main">
                 {/* modal-body */}
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="modal-body">
                     {/* modal-header */}
                         <h1>Add Sales</h1>
@@ -41,10 +37,10 @@ const AddSales = ({children, show, handleClose, name}) => {
                     </div>
                     {/* modal-footer */}
                     <div className="d-flex">
-                        <button className="modal-btn" onClick={handleOnClick}>Close</button>
+                        <button className="modal-btn" onClick={modalOk}>Close</button>
                         {step === 1 ? 
                             <>
-                                <button type="submit" className="modal-btn" onClick={nextStep}>Done</button>
+                                <button type="submit" className="modal-btn">Done</button>
                             </>
                             :
                             <>
