@@ -1,14 +1,8 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState} from 'react'
 import {Input} from '../components'
-import { useHistory } from 'react-router-dom'
-
-import {AuthenticationContext} from '../context'
 
 const Login = () => {
 
-    const {logged, role} = useContext(AuthenticationContext)
-
-    const history = useHistory()
 
     const [credentials, setCredentials] = useState({
         username : "",
@@ -31,12 +25,6 @@ const Login = () => {
         console.log(credentials.username)
         console.log(credentials.password)
     }
-
-    useEffect(() => {
-        if(logged){
-            history.push("/admin/")
-        }
-    })
 
     return (
         <div className="container page-center">

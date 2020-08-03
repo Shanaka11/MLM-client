@@ -18,6 +18,12 @@ function App() {
   useEffect(() => {
     if(!logged){
       history.push("/")
+    }else{
+      if(role === "ADMIN"){
+        history.push("/admin/")
+      }else if(role === "CLIENT"){
+        history.push("/client/")
+      }      
     }
     // If logged Restrict depending on the user role
   })
