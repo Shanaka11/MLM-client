@@ -65,8 +65,8 @@ const AdminPanal = () => {
         })        
     }
 
-    const redirect = (event) => {
-        if(event.name === "SalesList"){
+    const redirect = (name) => {
+        if(name === "SalesList"){
             history.push("/admin/sales")
         }else{
             history.push("/admin/salesperson")
