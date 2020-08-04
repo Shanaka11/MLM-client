@@ -1,10 +1,31 @@
-import React, { useState } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import {ReactComponent as Search} from '../../Icons/search.svg'
 import {ReactComponent as AddSales} from '../../Icons/recurring_subscription.svg'
 import {BtnListHeader, Input} from '../../components'
 import {NewSales, EditSales} from '../modals'
 
+import {SalesContext} from "../../context"
+
 const SalesBasicData = () => {
+
+    const { salesList, getSales, addSales } = useContext(SalesContext)
+
+    // Get Sales
+    useEffect(()=>{
+        getSales()
+    }, [])
+
+    // Add Sales
+    const handleAddSale = () => {
+        const data = {
+            salesperson: sales.salespersonId,
+            total: sales.totalSales,
+            commission_perc: sales.commission
+        }
+        addSales(data)
+    }
+    // Update Sales
+    // Remove Sales
 
     const [modalState, setModalState] = useState({
         newSale: false,
@@ -19,6 +40,9 @@ const SalesBasicData = () => {
     })
 
     const handleSalesModal = (name) => {        
+        if(name === "newSale"){
+            ResetSales()
+        }        
         setModalState(prevValue => {
             return {
                 ...prevValue,
@@ -36,20 +60,32 @@ const SalesBasicData = () => {
                 ...prevValue,
                 [name]: value
             }
+        })        
+    } 
+    
+    const ResetSales = () => {
+        setSales(prevValue => {
+            return {
+                ...prevValue,
+                saleId: "",
+                salespersonId: "",
+                totalSales: "",
+                commission: ""
+            }
         })
-    }    
+    }
 
     const handleItemOnClick = (event) => {
         // console.log(event.currentTarget.getAttribute("data-item"))
-        let item = event.currentTarget.getAttribute("data-item") 
+        let item = event.currentTarget.getAttribute("data-item")         
         item = JSON.parse(item)
         setSales( prevValue => {
             return {
                 ...prevValue,
-                "saleId": item.saleId,
-                "salespersonId": item.salespersonId,
-                "totalSales": item.totalSales,
-                "commission": item.commission
+                "saleId": item.id,
+                "salespersonId": item.salesperson,
+                "totalSales": item.total,
+                "commission": item.commission_perc
             }
         })        
         handleSalesModal('editSale')
@@ -88,41 +124,29 @@ const SalesBasicData = () => {
                         </div>
                     </div>
                 </div>
-                <div className="list-item" onClick={handleItemOnClick} data-item={JSON.stringify({saleId: "1", salespersonId:"3321", totalSales: "5632.00", commission: "5"})}>
-                    <div className="row">
-                        <div className="col-3">
-                            <p>1</p>
-                        </div>
-                        <div className="col-3">
-                            <p>3321</p>
-                        </div>
-                        <div className="col-3 text-right">
-                            <p>5632.00</p>
-                        </div>
-                        <div className="col-3 text-right">
-                            <p>5%</p>
-                        </div>
-                    </div>
-                </div>
-                <div className="list-item">
-                <div className="row">
-                        <div className="col-3">
-                            <p>2</p>
-                        </div>
-                        <div className="col-3">
-                            <p>65124</p>
-                        </div>
-                        <div className="col-3 text-right">
-                            <p>230.32</p>
-                        </div>
-                        <div className="col-3 text-right">
-                            <p>12%</p>
-                        </div>
-                    </div>
-                </div>            
+                {salesList.map((item, index) => {
+                    return (
+                        <div className="list-item" key={index} onClick={handleItemOnClick} data-item={JSON.stringify(item)}>
+                            <div className="row">
+                                <div className="col-3">
+                                    <p>{item.id}</p>
+                                </div>
+                                <div className="col-3">
+                                    <p>{item.salesperson}</p>
+                                </div>
+                                <div className="col-3 text-right">
+                                    <p>{item.total}</p>
+                                </div>
+                                <div className="col-3 text-right">
+                                    <p>{item.commission_perc}</p>
+                                </div>
+                            </div>
+                        </div>  
+                    )
+                })}         
             </div>
             {modalState.newSale && 
-                <NewSales name="newSale" show={modalState.newSale} handleClose={handleSalesModal}>
+                <NewSales name="newSale" show={modalState.newSale} handleClose={handleSalesModal} onSubmit={handleAddSale}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}

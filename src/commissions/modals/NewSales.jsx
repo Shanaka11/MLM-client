@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const AddSales = ({children, show, handleClose, name}) => {
+const AddSales = ({children, show, handleClose, name, onSubmit}) => {
 
     const [step, setStep] = useState(1)
 
@@ -14,6 +14,7 @@ const AddSales = ({children, show, handleClose, name}) => {
 
     const handleSubmit = (event) =>{
         event.preventDefault()
+        onSubmit()
         setStep(2)
     }
 

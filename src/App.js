@@ -9,6 +9,7 @@ import {SalesBasicData, SalesPersonBasicData} from "./commissions/basicdata"
 import { Switch, Route, useHistory} from 'react-router-dom'
 
 import {AuthenticationContext} from "./context"
+import {SalesProvider} from "./context"
 
 function App() {
 
@@ -37,9 +38,11 @@ function App() {
       {logged && <Navbar />}
         <Switch>
           <Route path="/" exact component={Login} />
-          <Route path="/admin/" exact component={AdminPanal}/>
-          <Route path="/admin/salesperson" exact component={SalesPersonBasicData}/>
-          <Route path="/admin/sales" exact component={SalesBasicData}/>
+          <SalesProvider>
+            <Route path="/admin/" exact component={AdminPanal}/>
+            <Route path="/admin/salesperson" exact component={SalesPersonBasicData}/>
+            <Route path="/admin/sales" exact component={SalesBasicData}/>
+          </SalesProvider>
         </Switch>
       </>
   );
