@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react'
 import {ReactComponent as AddSales} from '../Icons/recurring_subscription.svg'
 import {ReactComponent as Sales} from '../Icons/diary.svg'
-import {ReactComponent as AddSalesperson} from '../Icons/male_add.svg'
+import {ReactComponent as AddSalespersonI} from '../Icons/male_add.svg'
 import {ReactComponent as Salespersons} from '../Icons/contract_agreement.svg'
 import {BtnCard} from '../components'
 
@@ -13,7 +13,7 @@ import {SalesContext} from "../context"
 
 const AdminPanal = () => {
 
-    const { addSales } = useContext(SalesContext)
+    const { addSales, addSalesperson } = useContext(SalesContext)
 
     const handleAddSale = () => {
         const data = {
@@ -22,6 +22,18 @@ const AdminPanal = () => {
             commission_perc: sales.commission
         }
         addSales(data)
+    }
+
+    const handleAddSalesperson = () => {
+        const data = {
+            name: salesperson.name,
+            address: salesperson.address,
+            cell: salesperson.cell,
+            sponserId: salesperson.sponserId,
+            realestateId: salesperson.realestateId            
+        }
+
+        addSalesperson(data)
     }
 
     let history = useHistory()
@@ -105,7 +117,7 @@ const AdminPanal = () => {
                 </div>
                 <div className="col-3 d-flex center">
                     <BtnCard name="newSalespersons" onClickHandler={setNew}>
-                        <AddSalesperson className="icon"/>
+                        <AddSalespersonI className="icon"/>
                         <h4 className="btn-card-header">Add Salesperson</h4>
                         <p className="btn-card-desc">Add a new Salesperson</p>                        
                     </BtnCard>
@@ -151,7 +163,7 @@ const AdminPanal = () => {
                 </NewSales>
             }
             {modal.newSalespersons && 
-                <NewSalesperson  name="newSalespersons" show={modal.newSalespersons} handleClose={setNew}>
+                <NewSalesperson  name="newSalespersons" show={modal.newSalespersons} handleClose={setNew} onSubmit={handleAddSalesperson}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson}
