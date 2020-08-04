@@ -1,8 +1,11 @@
-import React, { useState} from 'react'
+import React, { useState, useContext } from 'react'
 import {Input} from '../components'
+import {AuthenticationContext} from '../context'
+
 
 const Login = () => {
 
+    const { logIn } = useContext(AuthenticationContext)
 
     const [credentials, setCredentials] = useState({
         username : "",
@@ -22,8 +25,7 @@ const Login = () => {
 
     const handleLogin = (event) =>{
         event.preventDefault()
-        console.log(credentials.username)
-        console.log(credentials.password)
+        logIn(credentials)
     }
 
     return (

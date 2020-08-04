@@ -12,18 +12,22 @@ import {AuthenticationContext} from "./context"
 
 function App() {
 
-  const {logged, role} = useContext(AuthenticationContext)
+  const {logged, role, currentUser} = useContext(AuthenticationContext)
   const history = useHistory()
 
-  useEffect(() => {
+  useEffect(() => {    
     if(!logged){
       history.push("/")
     }else{
-      if(role === "ADMIN"){
-        history.push("/admin/")
-      }else if(role === "CLIENT"){
-        history.push("/client/")
-      }      
+      if(role === ""){
+        currentUser()
+      }else{
+        if(role === "ADMIN"){
+          history.push("/admin/")
+        }else if(role === "CLIENT"){
+          history.push("/client/")
+        }  
+      }
     }
     // If logged Restrict depending on the user role
   })
