@@ -54,13 +54,20 @@ export const SalesProvider = ({ children }) => {
         ApiUpdateSales(handleFrontend)
     }    
     // Remove
-    const removeSales = () => {
+    const removeSales = (data) => {
         
         const handleFrontend = (response, status) => {
-
+            if(status === 204){
+                dispatch({
+                    type: "DEL",
+                    payload: data.id
+                })
+            }else{
+                console.log(response)
+            }
         }
-
-        ApiRemoveSales(handleFrontend)
+        console.log(data)
+        ApiRemoveSales(handleFrontend, data.id)
     }    
 
     return (

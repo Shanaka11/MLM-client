@@ -15,7 +15,7 @@ export default (state, action) => {
         case "DEL":
             return {
                 ...state,
-                salesList: []
+                salesList: state.salesList.filter(sale => sale.id !== action.payload)
             }
         default:
             return state

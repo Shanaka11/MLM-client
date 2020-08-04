@@ -23,7 +23,7 @@ export function ApiUpdateSales(callback, data){
 
 export function ApiRemoveSales(callback, data){
     const method = "DELETE"
-    const endpoint = `/commissions/sales/${data}`    
-
+    const endpoint = `/commissions/sales/${data}/`    
+    console.log("data")
     restrictedBackend(method, endpoint, callback)
 }

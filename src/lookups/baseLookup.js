@@ -1,6 +1,7 @@
 import jwt_decode from 'jwt-decode'
 // Have the refresh token stored in a cookie with secure and http-only 
 export function backendLookup(method, endpoint, callback, data){
+
         let token = localStorage.getItem("token") ? localStorage.getItem("token") : null
         let jsonData;
         if (data){
@@ -37,8 +38,6 @@ export function restrictedBackend(method, endpoint, callback, data){
     if(token){
         const decodedToken = jwt_decode(token)
         // Check if the token is expired if so get a new one
-        console.log(decodedToken.exp)
-        console.log(Date.now()/1000)
         if(decodedToken.exp > Date.now()/1000){
             getNewAccessToken = false
         }

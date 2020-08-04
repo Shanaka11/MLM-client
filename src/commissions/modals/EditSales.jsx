@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const EditSales = ({children, show, handleClose, name, id}) => {
+const EditSales = ({children, show, handleClose, name, id, onDelete}) => {
     const [step, setStep] = useState(1)
 
     const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -17,6 +17,7 @@ const EditSales = ({children, show, handleClose, name, id}) => {
 
     const handleDelete = (event) => {
         setStep(3)
+        onDelete()
     }
 
     const handleSubmit = (event) =>{
@@ -56,7 +57,7 @@ const EditSales = ({children, show, handleClose, name, id}) => {
                             <>
                                 <button className="modal-btn modal-btn-3" onClick={modalOk}>Close</button>
                                 <button type="submit" className="modal-btn modal-btn-3" onClick={handleEdit}>Save Changes</button>
-                                <button type="submit" className="modal-btn modal-btn-3" onClick={handleDelete}>Delete</button>
+                                <button className="modal-btn modal-btn-3" onClick={handleDelete}>Delete</button>
                             </>
                             :
                             <>
