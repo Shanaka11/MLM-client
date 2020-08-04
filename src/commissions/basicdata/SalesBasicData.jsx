@@ -8,7 +8,7 @@ import {SalesContext} from "../../context"
 
 const SalesBasicData = () => {
 
-    const { salesList, getSales, addSales, removeSales} = useContext(SalesContext)
+    const { salesList, getSales, addSales, removeSales, updateSales} = useContext(SalesContext)
 
     // Get Sales
     useEffect(()=>{
@@ -25,6 +25,15 @@ const SalesBasicData = () => {
         addSales(data)
     }
     // Update Sales
+    const handleEditSale = () => {
+        const data = {
+            id: sales.saleId,
+            salesperson: sales.salespersonId,
+            total: sales.totalSales,
+            commission_perc: sales.commission
+        }
+        updateSales(data)
+    }
     // Remove Sales
     const handleDelSale = () => {
         const data = {
@@ -32,7 +41,7 @@ const SalesBasicData = () => {
             salesperson: sales.salespersonId,
             total: sales.totalSales,
             commission_perc: sales.commission
-        } 
+        }         
         removeSales(data)
     }
 
@@ -186,7 +195,7 @@ const SalesBasicData = () => {
                 </NewSales>
             }
             {modalState.editSale &&
-                <EditSales name="editSale" show={modalState.editSale} handleClose={handleSalesModal} id={sales.saleId} onDelete={handleDelSale}>
+                <EditSales name="editSale" show={modalState.editSale} handleClose={handleSalesModal} id={sales.saleId} onDelete={handleDelSale} onSubmit={handleEditSale}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}

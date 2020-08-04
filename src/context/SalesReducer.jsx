@@ -11,7 +11,17 @@ export default (state, action) => {
                 salesList: [action.payload, ...state.salesList]
             }
         case "MOD":
-            return state
+            const index = state.salesList.findIndex(sale => sale.id === action.payload.id)
+            state.salesList[index] = {
+                "id": action.payload.id,
+                "total": action.payload.total,
+                "commission_perc": action.payload.commission_perc,
+                "salesperson": action.payload.salesperson
+            }
+            return {
+                ...state,
+                salesList: state.salesList
+            }
         case "DEL":
             return {
                 ...state,

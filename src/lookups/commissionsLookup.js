@@ -16,7 +16,7 @@ export function ApiGetSales(callback){
 
 export function ApiUpdateSales(callback, data){
     const method = "PUT"
-    const endpoint = `/commissions/sales/${data.id}`
+    const endpoint = `/commissions/sales/${data.id}/`
 
     restrictedBackend(method, endpoint, callback, data)
 }

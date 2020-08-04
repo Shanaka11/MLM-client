@@ -39,19 +39,30 @@ export const SalesProvider = ({ children }) => {
                         payload: response
                     }
                 )
+            }else{
+                console.log(response)
             }
         }
 
         ApiCreateSales(handleFrontend, data)
     }    
     // Update
-    const updateSales = () => {
+    const updateSales = (data) => {
         
         const handleFrontend = (response, status) => {
-
+            if(status === 200){
+                dispatch(
+                    {
+                        type: "MOD",
+                        payload: response
+                    }
+                )
+            }else{
+                console.log(response)
+            }
         }
 
-        ApiUpdateSales(handleFrontend)
+        ApiUpdateSales(handleFrontend, data)
     }    
     // Remove
     const removeSales = (data) => {
