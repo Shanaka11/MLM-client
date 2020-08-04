@@ -287,6 +287,11 @@ body{
 .nav-dropdown-item:hover{
   background-color: rgb(243, 243, 243);
 }
+
+.nav-item{
+  padding: 10px;
+  cursor: pointer;
+}
 /* List */
 
 .list-icon{

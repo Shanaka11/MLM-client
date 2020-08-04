@@ -1,10 +1,12 @@
 import React, {useContext, useState} from 'react'
 import {AuthenticationContext} from "../context"
+import { useHistory } from 'react-router-dom'
 
 const Navbar = () => {
 
-    const {username, logOut} = useContext(AuthenticationContext)
+    const {role, username, logOut} = useContext(AuthenticationContext)
     const [classname, setClassname] = useState("nav-dropdown display-none")
+    const history = useHistory()
 
     const handleUserOnClick = () => {
         if(classname === "nav-dropdown display-block") {
@@ -14,10 +16,22 @@ const Navbar = () => {
         }        
     }
 
+    const handleRedirectHome = () => {
+        console.log("Test")
+        if(role === "ADMIN"){
+            history.push("/admin/")
+        }else if(role === "CLIENT"){
+            history.push("/client/")
+        }
+    }
+
     return (
         <nav className="nav">
             <div className="container d-flex ">
-                <div className="nav-user ml-auto" onClick={handleUserOnClick}>
+                <div className="nav-item  ml-auto" onClick={handleRedirectHome}>
+                    Home
+                </div>
+                <div className="nav-item nav-user" onClick={handleUserOnClick}>
                     {username}
                     <div className={classname}>
                         <div className="nav-dropdown-item" onClick={logOut}>

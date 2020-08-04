@@ -19,6 +19,7 @@ function App() {
     if(!logged){
       history.push("/")
     }else{
+      // If logged Restrict depending on the user role
       if(role === ""){
         currentUser()
       }else{
@@ -28,8 +29,7 @@ function App() {
           history.push("/client/")
         }  
       }
-    }
-    // If logged Restrict depending on the user role
+    }    
   })
 
   return (
