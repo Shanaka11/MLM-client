@@ -45,6 +45,9 @@ export const AuthenticationProvider = ({children}) => {
 
     const logOut = () => {
         localStorage.removeItem('token')
+        dispatch({
+            type: 'LOGOUT'
+        })
     }
 
     const currentUser = () => {
@@ -58,7 +61,7 @@ export const AuthenticationProvider = ({children}) => {
             }else{
                 console.log(response)
                 // Logout
-                // logOut()
+                logOut()
             }
         }
 

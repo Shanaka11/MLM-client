@@ -7,6 +7,13 @@ export default (state, action) => {
                 username: action.payload.user.username,
                 role:"ADMIN"
             }
+        case 'LOGOUT':
+            return {
+                ...state,
+                logged: false,
+                username: "",
+                role: ""
+            }
         case 'USER':
             return {
                 ...state,

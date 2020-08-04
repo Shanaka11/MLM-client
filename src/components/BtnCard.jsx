@@ -4,8 +4,12 @@ const BtnCard = ({children, onClickHandler, name}) => {
 
     const [hover, setHover] = useState(false)
 
-    const handleHover = () => {
-        setHover(!hover)
+    const handleMouseEnter = () => {
+        setHover(true)
+    }
+
+    const handleMouseLeave = () => {
+        setHover(false)
     }
 
     const handleOnClick = () => {
@@ -13,7 +17,7 @@ const BtnCard = ({children, onClickHandler, name}) => {
     }
 
     return (
-        <div className= {hover ? "btn-card-expand" : "btn-card"}  onMouseEnter={handleHover} onMouseLeave={handleHover} onClick={handleOnClick}>            
+        <div className= {hover ? "btn-card-expand" : "btn-card"}  onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave} onClick={handleOnClick}>            
             {children[0]}
             {   hover &&                     
                     <>
