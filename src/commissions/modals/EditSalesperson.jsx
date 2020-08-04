@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const EditSalesperson = ({children, show, handleClose, name, id}) => {
+const EditSalesperson = ({children, show, handleClose, name, id, onDelete, onSubmit}) => {
     const [step, setStep] = useState(1)
 
     const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -16,11 +16,13 @@ const EditSalesperson = ({children, show, handleClose, name, id}) => {
     }
 
     const handleDelete = (event) => {
+        onDelete()
         setStep(3)
     }
 
     const handleSubmit = (event) =>{
         event.preventDefault()
+        onSubmit()
         setStep(2)
     }
 

@@ -1,10 +1,50 @@
-import React, { useState } from 'react'
+import React, { useState, useContext , useEffect} from 'react'
 import {ReactComponent as Search} from '../../Icons/search.svg'
 import {ReactComponent as AddSalesperson} from '../../Icons/male_add.svg'
 import {BtnListHeader, Input} from '../../components'
 import {NewSalesperson, EditSalesperson} from '../modals'
+import {SalesContext} from "../../context"
 
 const SalesPersonBasicData = () => {
+
+    const { salespersonList, getSalesperson, addSalesperson, removeSalesperson, updateSalesperson} = useContext(SalesContext)
+
+    // Get Sales    
+    useEffect(()=>{
+        getSalesperson()
+    }, [])
+
+    // Add Sales
+    const handleAddSalesperson = () => {
+        const data = {
+            name: salesperson.name,
+            address: salesperson.address,
+            cell: salesperson.cell,
+            sponserId: salesperson.centerId,
+            realestateId: salesperson.realestateId            
+        }
+        addSalesperson(data)
+    }
+    // Update Sales
+    const handleEditSalesperson = () => {
+        const data = {
+            id: salesperson.id,
+            name: salesperson.name,
+            address: salesperson.address,
+            cell: salesperson.cell,
+            sponserId: salesperson.centerId,
+            realestateId: salesperson.realestateId              
+        }
+        updateSalesperson(data)
+    }
+    // Remove Sales
+    const handleDelSalesperson = () => {
+        const data = {
+            id: salesperson.id            
+        }         
+        removeSalesperson(data)
+    }
+
     const [modalState, setModalState] = useState({
         newSalesperson: false,
         editSaleperson: false
@@ -47,11 +87,11 @@ const SalesPersonBasicData = () => {
         setSalesperson( prevValue => {
             return {
                 ...prevValue,
-                id: item.id,
-                name: item.name,
-                address: item.address,
-                cell: item.cell,
-                sponserId: item.centerId,
+                id: item.item.id,
+                name: item.item.name,
+                address: item.item.address,
+                cell: item.item.cell,
+                sponserId: item.sponser,
                 realestateId: item.realestateId
             }
         })        
@@ -96,31 +136,35 @@ const SalesPersonBasicData = () => {
                         </div>                                                
                     </div>
                 </div>
-                <div className="list-item" onClick={handleItemOnClick} data-item={JSON.stringify({id: "1", name:"Shanaka Abeysinghe", totalSales: "5632.00", commission: "5"})}>
-                    <div className="row">
-                        <div className="col-2">
-                            <p>1</p>
-                        </div>
-                        <div className="col-2">
-                            <p>Shanaka Bandara</p>
-                        </div>
-                        <div className="col-2">
-                            <p>67/1/A Napana, Gunnepana</p>
-                        </div>
-                        <div className="col-2">
-                            <p>+94714145998</p>
-                        </div>
-                        <div className="col-2">
-                            <p>12</p>
-                        </div>
-                        <div className="col-2">
-                            <p>21</p>
-                        </div>                                                
-                    </div>
-                </div>               
+                {salespersonList.map((item, index) => {
+                    return (
+                        <div className="list-item" key={index} onClick={handleItemOnClick} data-item={JSON.stringify({item})}>
+                            <div className="row">
+                                <div className="col-2">
+                                    <p>{item.id}</p>
+                                </div>
+                                <div className="col-2">
+                                    <p>{item.name}</p>
+                                </div>
+                                <div className="col-2">
+                                    <p>{item.address}</p>
+                                </div>
+                                <div className="col-2">
+                                    <p>{item.cell}</p>
+                                </div>
+                                <div className="col-2">
+                                    <p>{item.sponser}</p>
+                                </div>
+                                <div className="col-2">
+                                    <p>{item.realestate}</p>
+                                </div>                                                
+                            </div>
+                        </div>  
+                    )
+                })}             
             </div>
             {modalState.newSalesperson && 
-                <NewSalesperson  name="newSalesperson" show={modalState.newSalesperson} handleClose={handleSalesModal}>
+                <NewSalesperson  name="newSalesperson" show={modalState.newSalesperson} handleClose={handleSalesModal} onSubmit={handleAddSalesperson}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson}
@@ -169,7 +213,7 @@ const SalesPersonBasicData = () => {
                 </NewSalesperson>
             }
             {modalState.editSaleperson && 
-                <EditSalesperson name="editSaleperson" show={modalState.editSaleperson} handleClose={handleSalesModal} id={salesperson.id}>
+                <EditSalesperson name="editSaleperson" show={modalState.editSaleperson} handleClose={handleSalesModal} id={salesperson.id} onDelete={handleDelSalesperson} onSubmit={handleEditSalesperson}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson}

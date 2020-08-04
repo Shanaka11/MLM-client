@@ -1,9 +1,11 @@
 import React, { createContext, useReducer } from "react"
 import SalesReducer from "./SalesReducer"
-import {ApiCreateSales, ApiGetSales, ApiRemoveSales, ApiUpdateSales} from "../lookups"
+import {ApiCreateSales, ApiGetSales, ApiRemoveSales, ApiUpdateSales,
+        ApiCreateSalesperson, ApiGetSalesperson, ApiRemoveSalesperson, ApiUpdateSalesperson} from "../lookups"
 
 const initialState = {
-    salesList: []
+    salesList: [],
+    salespersonList: []
 }
 
 export const SalesContext = createContext(initialState)
@@ -28,6 +30,21 @@ export const SalesProvider = ({ children }) => {
 
         ApiGetSales(handleFrontend)
     }
+
+    const getSalesperson = () => {
+
+        const handleFrontend = (response, status) => {
+            if(status === 200){
+                dispatch({
+                    type: "GETPERSON",
+                    payload: response
+                })
+            }else{
+                console.log(response)
+            }
+        }
+        ApiGetSalesperson(handleFrontend)
+    }
     // Add
     const addSales = (data) => {
         
@@ -46,6 +63,24 @@ export const SalesProvider = ({ children }) => {
 
         ApiCreateSales(handleFrontend, data)
     }    
+
+    const addSalesperson = (data) => {
+        
+        const handleFrontend = (response, status) => {
+            if(status === 201){
+                dispatch(
+                    {
+                        type: "ADDPERSON",
+                        payload: response
+                    }
+                )
+            }else{
+                console.log(response)
+            }
+        }
+
+        ApiCreateSalesperson(handleFrontend, data)
+    }     
     // Update
     const updateSales = (data) => {
         
@@ -61,9 +96,24 @@ export const SalesProvider = ({ children }) => {
                 console.log(response)
             }
         }
-
         ApiUpdateSales(handleFrontend, data)
     }    
+    const updateSalesperson = (data) => {
+        
+        const handleFrontend = (response, status) => {
+            if(status === 200){
+                dispatch(
+                    {
+                        type: "MODPERSON",
+                        payload: response
+                    }
+                )
+            }else{
+                console.log(response)
+            }
+        }
+        ApiUpdateSalesperson(handleFrontend, data)
+    }       
     // Remove
     const removeSales = (data) => {
         
@@ -77,19 +127,37 @@ export const SalesProvider = ({ children }) => {
                 console.log(response)
             }
         }
-        console.log(data)
         ApiRemoveSales(handleFrontend, data.id)
     }    
 
+    const removeSalesperson = (data) => {
+        
+        const handleFrontend = (response, status) => {
+            if(status === 204){
+                dispatch({
+                    type: "DELPERSON",
+                    payload: data.id
+                })
+            }else{
+                console.log(response)
+            }
+        }
+        ApiRemoveSalesperson(handleFrontend, data.id)
+    } 
     return (
         <SalesContext.Provider
             value = {
                 {
                     salesList: state.salesList,
+                    salespersonList: state.salespersonList,
                     getSales,
                     addSales,
                     updateSales,
-                    removeSales
+                    removeSales,
+                    getSalesperson,
+                    addSalesperson,
+                    updateSalesperson,
+                    removeSalesperson
                 }
             }
         >

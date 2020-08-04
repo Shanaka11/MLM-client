@@ -1,4 +1,5 @@
 export default (state, action) => {
+    let index
     switch(action.type){
         case "GET":
             return {
@@ -11,7 +12,7 @@ export default (state, action) => {
                 salesList: [action.payload, ...state.salesList]
             }
         case "MOD":
-            const index = state.salesList.findIndex(sale => sale.id === action.payload.id)
+            index = state.salesList.findIndex(sale => sale.id === action.payload.id)
             state.salesList[index] = {
                 "id": action.payload.id,
                 "total": action.payload.total,
@@ -27,6 +28,35 @@ export default (state, action) => {
                 ...state,
                 salesList: state.salesList.filter(sale => sale.id !== action.payload)
             }
+        case "GETPERSON":
+            return {
+                ...state,
+                salespersonList: action.payload
+            }
+        case "ADDPERSON":
+            return {
+                ...state,
+                salespersonList: [action.payload, ...state.salespersonList]
+            }
+        case "MODPERSON":
+            index = state.salespersonList.findIndex(salesperson => salesperson.id === action.payload.id)
+            state.salespersonList[index] = {
+                "id": action.payload.id,
+                "name": action.payload.name,
+                "address": action.payload.address,
+                "cell": action.payload.cell,
+                "sponser": action.payload.sponser,
+                "realestate": action.payload.realestate
+            }
+            return {
+                ...state,
+                salespersonList: state.salespersonList
+            }
+        case "DELPERSON":
+            return {
+                ...state,
+                salespersonList: state.salespersonList.filter(salesperson => salesperson.id !== action.payload)
+            }            
         default:
             return state
     }
