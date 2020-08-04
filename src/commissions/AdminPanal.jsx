@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import {ReactComponent as AddSales} from '../Icons/recurring_subscription.svg'
 import {ReactComponent as Sales} from '../Icons/diary.svg'
 import {ReactComponent as AddSalesperson} from '../Icons/male_add.svg'
@@ -9,8 +9,20 @@ import {NewSales, NewSalesperson} from '../commissions/modals'
 import {Input} from '../components'
 
 import {useHistory} from "react-router-dom"
+import {SalesContext} from "../context"
 
 const AdminPanal = () => {
+
+    const { addSales } = useContext(SalesContext)
+
+    const handleAddSale = () => {
+        const data = {
+            salesperson: sales.salespersonId,
+            total: sales.totalSales,
+            commission_perc: sales.commission
+        }
+        addSales(data)
+    }
 
     let history = useHistory()
 
@@ -108,7 +120,7 @@ const AdminPanal = () => {
             </div>
             {/* Add Sales and Salesperson Dialogs */}
             {modal.newSale && 
-                <NewSales name="newSale" show={modal.newSale} handleClose={setNew}>
+                <NewSales name="newSale" show={modal.newSale} handleClose={setNew} onSubmit={handleAddSale}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}
