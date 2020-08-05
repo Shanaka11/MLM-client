@@ -13,3 +13,9 @@ export function ApiGetUser(callback){
     const endpoint = "/user/user"
     restrictedBackend(method, endpoint, callback)
 }
+
+export function ApiRegisterUser(callback, data){
+    const method = "POST"
+    const endpoint = "/user/create"
+    backendLookup(method, endpoint, callback, data)
+}

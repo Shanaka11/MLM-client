@@ -1,11 +1,13 @@
 import React, { useState, useContext } from 'react'
 import {Input} from '../components'
 import {AuthenticationContext} from '../context'
+import { useHistory } from 'react-router-dom'
 
 
 const Login = () => {
 
     const { logIn } = useContext(AuthenticationContext)
+    const history = useHistory()
 
     const [credentials, setCredentials] = useState({
         username : "",
@@ -26,6 +28,10 @@ const Login = () => {
     const handleLogin = (event) =>{
         event.preventDefault()
         logIn(credentials)
+    }
+
+    const registerHandle = (event) => {
+        history.push("/register")
     }
 
     return (
@@ -52,7 +58,7 @@ const Login = () => {
                                 required/>
                     </div>
                     <div className="input-group d-flex justify-center">
-                        <div className="text-small pointer">Forgot Password ?</div>
+                        <div className="text-small pointer" onClick={ registerHandle }>Create Account</div>
                         <button className="btn btn-login ml-auto" type="submit">Log In</button>
                     </div>                    
                 </form>

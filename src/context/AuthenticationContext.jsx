@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react"
 import AuthenticationReducer from "./AuthenticationReducer"
-import {ApiAuthenticate, ApiGetUser} from "../lookups"
+import {ApiAuthenticate, ApiGetUser, ApiRegisterUser} from "../lookups"
 
 // Initial State
 const initialState = {
@@ -18,6 +18,10 @@ export const AuthenticationProvider = ({children}) => {
     const [state, dispatch] = useReducer(AuthenticationReducer, initialState)
 
     // Actions
+    const register = (callback, data) => {
+        ApiRegisterUser(callback, data)
+    }
+
     const logIn = (credentials) => {
 
         const handleFrontend = (response, status) => {
@@ -78,7 +82,8 @@ export const AuthenticationProvider = ({children}) => {
                     role: state.role,
                     logIn,
                     logOut,
-                    currentUser
+                    currentUser,
+                    register
                 }
             }
         >

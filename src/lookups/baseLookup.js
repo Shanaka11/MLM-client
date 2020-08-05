@@ -1,4 +1,21 @@
 import jwt_decode from 'jwt-decode'
+
+// Get Cookie Function
+const getCookie = (name) => {
+    var cookieValue = null
+    if(document.cookie && document.cookie !== ""){
+        var cookies = document.cookie.split(';')
+        for(var i = 0; i < cookies.length; i++) {
+            var cookie = cookies[i].trim()
+            if(cookie.substring(0, name.length + 1) === (name + '=')){
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue
+}
+
 // Have the refresh token stored in a cookie with secure and http-only 
 export function backendLookup(method, endpoint, callback, data){
 
@@ -15,6 +32,11 @@ export function backendLookup(method, endpoint, callback, data){
         xhr.setRequestHeader("Content-Type", "application/json")
         // Check first if the user is already logged in
         // Add CSRF tokens as well
+        const csrf = getCookie("csrftoken")
+        if(csrf){
+            xhr.setRequestHeader("X-Requested-With", "XMLHttpRequest")
+            xhr.setRequestHeader("X-CSRFToken", csrf)
+        }
         xhr.withCredentials = true
         if(token){
             // Check if the token is expiered if so get a new token via refresh token

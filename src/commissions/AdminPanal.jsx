@@ -197,8 +197,7 @@ const AdminPanal = () => {
                                 name = "sponser"
                                 placeholder="Sopnser ID" 
                                 initialValue={salesperson.sponserId} 
-                                reset="FALSE"
-                                required/>
+                                reset="FALSE"/>
                     </div>  
                     <div className="input-group">
                         <Input  type="text" 
@@ -206,8 +205,7 @@ const AdminPanal = () => {
                                 name = "realestate"
                                 placeholder="Real Estate ID" 
                                 initialValue={salesperson.realestateId} 
-                                reset="FALSE"
-                                required/>
+                                reset="FALSE"/>
                     </div>                                                       
                 </NewSalesperson>
             }
