@@ -96,7 +96,7 @@ export const SalesProvider = ({ children }) => {
                 console.log(response)
             }
         }
-
+        console.log(data)
         ApiCreateSalesperson(handleFrontend, data)
     }     
     // Update

@@ -46,7 +46,8 @@ export default (state, action) => {
                 "address": action.payload.address,
                 "cell": action.payload.cell,
                 "sponser": action.payload.sponser,
-                "realestate": action.payload.realestate
+                "realestate": action.payload.realestate,
+                "qualification": action.payload.qualification
             }
             return {
                 ...state,

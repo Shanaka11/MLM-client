@@ -15,8 +15,9 @@ const Register = () => {
         email: "",
         address: "",
         cell: "",
-        spnonserid: "",
-        realestateid: ""
+        sponser: "",
+        realestate_id: "",
+        qualification: "",
     })
 
     const handleChange = (event) => {
@@ -106,19 +107,27 @@ const Register = () => {
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
-                                name = "sponserid"
+                                name = "sponser"
                                 placeholder="Sponser Id" 
-                                initialValue={state.spnonserid} 
+                                initialValue={state.sponser} 
                                 reset="FALSE"/>
                     </div> 
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
-                                name = "realestateid"
+                                name = "realestate_id"
                                 placeholder="Realestate Id" 
-                                initialValue={state.realestateid} 
+                                initialValue={state.realestate_id} 
                                 reset="FALSE"/>
-                    </div>                                                                                                
+                    </div>   
+                    <div className="input-group">
+                        <Input  type="number" 
+                                setFinalValue={handleChange} 
+                                name = "qualification"
+                                placeholder="Qualification" 
+                                initialValue={state.qualification} 
+                                reset="FALSE"/>
+                    </div>                                                                                             
                     <div className="input-group d-flex justify-center">
                         <button className="btn btn-login ml-auto" type="submit">Register</button>
                     </div>                    

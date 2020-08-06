@@ -20,8 +20,9 @@ const SalesPersonBasicData = () => {
             name: salesperson.name,
             address: salesperson.address,
             cell: salesperson.cell,
-            sponserId: salesperson.centerId,
-            realestateId: salesperson.realestateId            
+            sponser: salesperson.sponserId,
+            realestate_id: salesperson.realestateId,  
+            qualification: salesperson.qualification          
         }
         addSalesperson(data)
     }
@@ -32,8 +33,9 @@ const SalesPersonBasicData = () => {
             name: salesperson.name,
             address: salesperson.address,
             cell: salesperson.cell,
-            sponserId: salesperson.centerId,
-            realestateId: salesperson.realestateId              
+            sponser: salesperson.centerId,
+            realestate_id: salesperson.realestateId,
+            qualification: salesperson.qualification              
         }
         updateSalesperson(data)
     }
@@ -56,7 +58,8 @@ const SalesPersonBasicData = () => {
         address: "",
         cell:"",
         sponserId:"",
-        realestateId:""
+        realestateId:"",
+        qualification: ""
     })
 
     const handleSalesModal = (name) => {    
@@ -92,7 +95,8 @@ const SalesPersonBasicData = () => {
                 address: item.item.address,
                 cell: item.item.cell,
                 sponserId: item.sponser,
-                realestateId: item.realestateId
+                realestateId: item.realestate_id,
+                qualification: item.qualification
             }
         })        
         handleSalesModal('editSaleperson')
@@ -131,8 +135,11 @@ const SalesPersonBasicData = () => {
                         <div className="col-2">
                             <h5>Sponser ID</h5>
                         </div>
-                        <div className="col-2">
+                        <div className="col-1">
                             <h5>Realestate ID</h5>
+                        </div>
+                        <div className="col-1">
+                            <h5>Qualification</h5>
                         </div>                                                
                     </div>
                 </div>
@@ -155,9 +162,12 @@ const SalesPersonBasicData = () => {
                                 <div className="col-2">
                                     <p>{item.sponser}</p>
                                 </div>
-                                <div className="col-2">
-                                    <p>{item.realestate}</p>
-                                </div>                                                
+                                <div className="col-1">
+                                    <p>{item.realestate_id}</p>
+                                </div>
+                                <div className="col-1">
+                                    <p>{item.qualification}</p>
+                                </div>                                                                                
                             </div>
                         </div>  
                     )
@@ -195,7 +205,7 @@ const SalesPersonBasicData = () => {
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
-                                name = "sponser"
+                                name = "sponserId"
                                 placeholder="Sopnser ID" 
                                 initialValue={salesperson.sponserId} 
                                 reset="FALSE"
@@ -204,12 +214,21 @@ const SalesPersonBasicData = () => {
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
-                                name = "realestate"
+                                name = "realestateId"
                                 placeholder="Real Estate ID" 
                                 initialValue={salesperson.realestateId} 
                                 reset="FALSE"
                                 required/>
-                    </div>                                                       
+                    </div>  
+                    <div className="input-group">
+                        <Input  type="number" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "qualification"
+                                placeholder="Qualification" 
+                                initialValue={salesperson.qualification} 
+                                reset="FALSE"
+                                required/>
+                    </div>                                                                         
                 </NewSalesperson>
             }
             {modalState.editSaleperson && 
@@ -244,7 +263,7 @@ const SalesPersonBasicData = () => {
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
-                                name = "sponser"
+                                name = "sponserId"
                                 placeholder="Sopnser ID" 
                                 initialValue={salesperson.sponserId} 
                                 reset="FALSE"
@@ -253,12 +272,21 @@ const SalesPersonBasicData = () => {
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
-                                name = "realestate"
+                                name = "realestateId"
                                 placeholder="Real Estate ID" 
                                 initialValue={salesperson.realestateId} 
                                 reset="FALSE"
                                 required/>
-                    </div>                            
+                    </div>
+                    <div className="input-group">
+                        <Input  type="number" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "qualification"
+                                placeholder="Qualification" 
+                                initialValue={salesperson.qualification} 
+                                reset="FALSE"
+                                required/>
+                    </div>                                                 
                 </EditSalesperson>
             }            
         </div>

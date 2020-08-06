@@ -29,8 +29,9 @@ const AdminPanal = () => {
             name: salesperson.name,
             address: salesperson.address,
             cell: salesperson.cell,
-            sponserId: salesperson.sponserId,
-            realestateId: salesperson.realestateId            
+            sponser: salesperson.sponserId,
+            realestate_id: salesperson.realestateId,
+            qualification: salesperson.qualification            
         }
 
         addSalesperson(data)
@@ -53,8 +54,9 @@ const AdminPanal = () => {
         name: "",
         address: "",
         cell:"",
-        sponserId:"",
-        realestateId:""
+        sponser:"",
+        realestateId:"",
+        qualification: ""
     })
 
     const setNew = (name) => {
@@ -206,7 +208,15 @@ const AdminPanal = () => {
                                 placeholder="Real Estate ID" 
                                 initialValue={salesperson.realestateId} 
                                 reset="FALSE"/>
-                    </div>                                                       
+                    </div>    
+                    <div className="input-group">
+                        <Input  type="number" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "qualification"
+                                placeholder="Qualification" 
+                                initialValue={salesperson.qualification} 
+                                reset="FALSE"/>
+                    </div>                                                                       
                 </NewSalesperson>
             }
         </div>
