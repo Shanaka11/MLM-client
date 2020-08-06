@@ -56,7 +56,17 @@ export default (state, action) => {
             return {
                 ...state,
                 salespersonList: state.salespersonList.filter(salesperson => salesperson.id !== action.payload)
-            }            
+            }      
+        case "CONNECTED":
+            return {
+                ...state,
+                connectedSalespersonList: action.payload
+            }      
+        case "GETPERSONDETAIL":
+            return{
+                ...state,
+                salesperson: action.payload
+            }
         default:
             return state
     }

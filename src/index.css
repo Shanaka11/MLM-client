@@ -345,3 +345,8 @@ body{
 .text-right{
   text-align: right;
 }
+
+.small{
+  font-size: small;
+  color: gray;
+}

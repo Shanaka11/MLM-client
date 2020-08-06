@@ -1,6 +1,17 @@
-import React from 'react'
-
+import React, { useContext, useEffect } from 'react'
+import {SalesContext, AuthenticationContext} from '../context'
 const ClientPanal = () => {
+    const {salesperson_id} = useContext(AuthenticationContext)
+    const {connectedSalespersonList, salesperson, getConnectedSalesperson, getSalespersonDetail} = useContext(SalesContext)
+    // const {salesperson_id} = useContext(AuthenticationContext)
+    // Intial salesperson list
+    useEffect(() =>{
+        if(salesperson_id){
+            getSalespersonDetail(salesperson_id)
+            // getConnectedSalesperson(salesperson_id)
+        }
+    }, [salesperson_id])
+
     const name = "Fetch the name from the context"
     return (
         <div className="container">
@@ -9,23 +20,23 @@ const ClientPanal = () => {
                 <div className="list-item">
                     <div className="row">
                         <div className="col-3">
-                            <div>Sponser Name</div>
+                            <div className="small">Sponser Name</div>
                             <div>Shanaka</div>
-                            <div>Personal Commission</div>
+                            <div className="small">Personal Commission</div>
                             <div>100</div>
                         </div>
                         <div className="col-3">
-                            <div>Qualification</div>
+                            <div className="small">Qualification</div>
                             <div>2000</div>
-                            <div>Group Commission</div>
+                            <div className="small">Group Commission</div>
                             <div>100</div>
                         </div>
                         <div className="col-3">
-                            <div>Total Individual Sales</div>
+                            <div className="small">Total Individual Sales</div>
                             <div>20000</div>
                         </div>
                         <div className="col-3">
-                            <div>Total Group Sales</div>
+                            <div className="small">Total Group Sales</div>
                             <div>141200</div>
                         </div>
                     </div>
@@ -53,22 +64,26 @@ const ClientPanal = () => {
                                 </div>
                             </div>                            
                         </div>
-                        <div className="list-item">
-                            <div className="row">
-                                <div className="col-3">
-                                    <p>1</p>
-                                </div>
-                                <div className="col-3">
-                                    <p>Miguel</p>
-                                </div>
-                                <div className="col-3">
-                                    <p>5%</p>
-                                </div>
-                                <div className="col-3">
-                                    <p>100</p>
-                                </div>
-                            </div>
-                        </div>
+                        {connectedSalespersonList.map((item, index) =>{
+                            return (
+                                <div className="list-item" key={index}>
+                                    <div className="row">
+                                        <div className="col-3">
+                                            <p>{item.id}</p>
+                                        </div>
+                                        <div className="col-3">
+                                            <p>{item.name}</p>
+                                        </div>
+                                        <div className="col-3">
+                                            <p>{item.qualification}</p>
+                                        </div>
+                                        <div className="col-3">
+                                            <p>{item.total_commission}</p>
+                                        </div>
+                                    </div>
+                                </div>      
+                            )
+                        })}
                     </div>                    
                 </div>
             </div>

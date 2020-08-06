@@ -45,6 +45,13 @@ export function ApiGetSalesperson(callback){
     restrictedBackend(method, endpoint, callback)
 }
 
+export function ApiGetSalespersonDetails(callback, data){
+    const method = "GET"
+    const endpoint = "/commissions/salesperson/" + data
+
+    restrictedBackend(method, endpoint, callback)
+}
+
 export function ApiUpdateSalesperson(callback, data){
     const method = "PUT"
     const endpoint = `/commissions/salesperson/${data.id}/`
@@ -55,5 +62,12 @@ export function ApiUpdateSalesperson(callback, data){
 export function ApiRemoveSalesperson(callback, data){
     const method = "DELETE"
     const endpoint = `/commissions/salesperson/${data}/`    
+    restrictedBackend(method, endpoint, callback)
+}
+
+// Salesperson - Extra
+export function ApiGetConnectedSalespersons(callback, id){
+    const method = "GET"
+    const endpoint = `/commissions/connected_salesperson/${id}`
     restrictedBackend(method, endpoint, callback)
 }

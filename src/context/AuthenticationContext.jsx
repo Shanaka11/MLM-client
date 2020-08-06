@@ -8,6 +8,7 @@ const initialState = {
     // If logged then fetch it if not already there
     username: "",
     role: "",
+    salesperson_id: "",
 }
 
 // Create Context
@@ -81,6 +82,7 @@ export const AuthenticationProvider = ({children}) => {
                     logged: state.logged,
                     username: state.username,
                     role: state.role,
+                    salesperson_id: state.salesperson_id,
                     logIn,
                     logOut,
                     currentUser,

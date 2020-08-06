@@ -1,11 +1,14 @@
 import React, { createContext, useReducer } from "react"
 import SalesReducer from "./SalesReducer"
 import {ApiCreateSales, ApiGetSales, ApiRemoveSales, ApiUpdateSales,
-        ApiCreateSalesperson, ApiGetSalesperson, ApiRemoveSalesperson, ApiUpdateSalesperson} from "../lookups"
+        ApiCreateSalesperson, ApiGetSalesperson, ApiRemoveSalesperson, ApiUpdateSalesperson,
+        ApiGetConnectedSalespersons, ApiGetSalespersonDetails} from "../lookups"
 
 const initialState = {
     salesList: [],
-    salespersonList: []
+    salespersonList: [],
+    salesperson: "",
+    connectedSalespersonList: []
 }
 
 export const SalesContext = createContext(initialState)
@@ -44,6 +47,21 @@ export const SalesProvider = ({ children }) => {
             }
         }
         ApiGetSalesperson(handleFrontend)
+    }
+
+    const getSalespersonDetail = (data) => {
+        const handleFrontend = (response, status) => {
+            if(status === 200){
+                dispatch({
+                    type: "GETPERSONDETAIL",
+                    payload: response
+                })
+                getConnectedSalesperson(response.id)
+            }else{
+                console.log(response)
+            }
+        }
+        ApiGetSalespersonDetails(handleFrontend, data)        
     }
     // Add
     const addSales = (data) => {
@@ -143,6 +161,20 @@ export const SalesProvider = ({ children }) => {
             }
         }
         ApiRemoveSalesperson(handleFrontend, data.id)
+    }
+    // Get Connected Salesperson
+    const getConnectedSalesperson = (data) => {
+        const handleFrontend = (response, status) => {
+            if(status === 200){
+                dispatch({
+                    type: "CONNECTED",
+                    payload: response
+                })
+            }else{
+                console.log(response)
+            }
+        }
+        ApiGetConnectedSalespersons(handleFrontend, data)
     } 
     return (
         <SalesContext.Provider
@@ -150,6 +182,8 @@ export const SalesProvider = ({ children }) => {
                 {
                     salesList: state.salesList,
                     salespersonList: state.salespersonList,
+                    connectedSalespersonList: state.connectedSalespersonList,
+                    salesperson: state.salesperson,
                     getSales,
                     addSales,
                     updateSales,
@@ -157,7 +191,9 @@ export const SalesProvider = ({ children }) => {
                     getSalesperson,
                     addSalesperson,
                     updateSalesperson,
-                    removeSalesperson
+                    removeSalesperson,
+                    getConnectedSalesperson,
+                    getSalespersonDetail
                 }
             }
         >
