@@ -18,7 +18,7 @@ export default (state, action) => {
             return {
                 ...state,
                 username: action.payload.username,
-                role:"ADMIN"
+                role: action.payload.role
             }
         default:
             return state

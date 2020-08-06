@@ -3,7 +3,7 @@ import {Login, Register} from './authentication'
 import {Navbar} from './nav'
 
 
-import {AdminPanal} from "./commissions"
+import {AdminPanal, ClientPanal} from "./commissions"
 import {SalesBasicData, SalesPersonBasicData} from "./commissions/basicdata"
 
 import { Switch, Route, useHistory} from 'react-router-dom'
@@ -43,6 +43,7 @@ function App() {
             <Route path="/admin/" exact component={AdminPanal}/>
             <Route path="/admin/salesperson" exact component={SalesPersonBasicData}/>
             <Route path="/admin/sales" exact component={SalesBasicData}/>
+            <Route path="/client/" exact component={ClientPanal} />                      
           </SalesProvider>
         </Switch>
       </>

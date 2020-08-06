@@ -33,6 +33,7 @@ export const AuthenticationProvider = ({children}) => {
                     type: 'LOGIN',
                     payload: response
                 })
+                currentUser()
             }else{
                 console.log(response)
             }
