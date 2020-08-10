@@ -191,6 +191,20 @@ body{
   margin-bottom: 1.5rem;
 }
 
+.bredcrumb-item{
+  padding: 5px;
+  cursor: pointer;
+}
+
+.bredcrumb-item:hover, .bredcrumb-item:focus{
+  color: grey;
+}
+
+.bredcrumb-item::after{
+  padding: 5px 0 5px 5px;
+  content: ">";
+}
+
 /* Modal */
 .modal {
   position: fixed;
