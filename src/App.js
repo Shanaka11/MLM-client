@@ -41,7 +41,7 @@ function App() {
           <Route path="/register" exact component={Register} />
           <Route path="/admin/register/admin" exact component={CreateAdmin} />
           <SalesProvider>
-            <Route path="" exact component={AdminPanal}/>
+            <Route path="/admin/" exact component={AdminPanal}/>
             <Route path="/admin/salesperson" exact component={SalesPersonBasicData}/>
             <Route path="/admin/sales" exact component={SalesBasicData}/>
             <Route path="/client/" exact component={ClientPanal} />                      

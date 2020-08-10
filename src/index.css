@@ -187,6 +187,10 @@ body{
   margin-top: 10rem !important;
 }
 
+.mb-4{
+  margin-bottom: 1.5rem;
+}
+
 /* Modal */
 .modal {
   position: fixed;

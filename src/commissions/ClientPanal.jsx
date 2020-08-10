@@ -1,8 +1,13 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {SalesContext, AuthenticationContext} from '../context'
 const ClientPanal = () => {
     const {salesperson_id} = useContext(AuthenticationContext)
-    const {connectedSalespersonList, salesperson, getConnectedSalesperson, getSalespersonDetail} = useContext(SalesContext)
+    const {connectedSalespersonList, salesperson, getSalespersonDetail} = useContext(SalesContext)
+    const [currSalesperson, setCurrSalesperson] = useState({
+        id: salesperson.id ? salesperson.id : "",
+        name: salesperson.name ? salesperson.name : ""
+    })
+    const [breadcrumbs, setBreadcrumbs] = useState()
     // const {salesperson_id} = useContext(AuthenticationContext)
     // Intial salesperson list
     useEffect(() =>{
@@ -12,39 +17,40 @@ const ClientPanal = () => {
         }
     }, [salesperson_id])
 
-    const name = "Fetch the name from the context"
+    // HandleBreadcrumbs
     return (
         <div className="container">
-            <h1>Client Interface - {name} </h1>
+            {salesperson && <>
+            <h1>{salesperson.id} - {salesperson.name} </h1>
             <div className="list">
                 <div className="list-item">
                     <div className="row">
                         <div className="col-3">
                             <div className="small">Sponser Name</div>
-                            <div>Shanaka</div>
+                            <div>{salesperson.sponser.name}</div>
                             <div className="small">Personal Commission</div>
-                            <div>100</div>
+                            <div>{salesperson.total_individual_commission}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Qualification</div>
-                            <div>2000</div>
+                            <div>{salesperson.qualification}</div>
                             <div className="small">Group Commission</div>
-                            <div>100</div>
+                            <div>{salesperson.total_group_commissions}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Total Individual Sales</div>
-                            <div>20000</div>
+                            <div>{salesperson.total_individual_sales}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Total Group Sales</div>
-                            <div>141200</div>
+                            <div>{salesperson.total_group_sales}</div>
                         </div>
                     </div>
                 </div>
             </div>
             <div className="row mt-4">
                 <div className="col">
-                    <div className="list">
+                    <div className="list mb-4">
                         <div className="list-item">
                             have a breadcrumb trail of salesperson here
                         </div>
@@ -87,6 +93,7 @@ const ClientPanal = () => {
                     </div>                    
                 </div>
             </div>
+            </>}
         </div>
     )
 }
