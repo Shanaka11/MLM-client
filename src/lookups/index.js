@@ -1,4 +1,4 @@
-import {ApiAuthenticate, ApiGetUser, ApiRegisterUser} from './authenticationLookups'
+import {ApiAuthenticate, ApiGetUser, ApiRegisterUser, ApiRegisterAdmin} from './authenticationLookups'
 import {ApiCreateSales, ApiGetSales, ApiRemoveSales, ApiUpdateSales,
         ApiCreateSalesperson, ApiGetSalesperson, ApiRemoveSalesperson, ApiUpdateSalesperson,
         ApiGetConnectedSalespersons, ApiGetSalespersonDetails} from "./commissionsLookup"
@@ -16,5 +16,6 @@ export{
     ApiRemoveSalesperson,
     ApiUpdateSalesperson,
     ApiGetConnectedSalespersons,
-    ApiGetSalespersonDetails
+    ApiGetSalespersonDetails,
+    ApiRegisterAdmin
 }

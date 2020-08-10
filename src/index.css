@@ -186,6 +186,7 @@ body{
 .margin-t-10{
   margin-top: 10rem !important;
 }
+
 /* Modal */
 .modal {
   position: fixed;
@@ -291,6 +292,10 @@ body{
 .nav-item{
   padding: 10px;
   cursor: pointer;
+}
+
+.nav-item:hover{
+  color: grey
 }
 /* List */
 

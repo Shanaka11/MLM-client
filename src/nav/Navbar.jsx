@@ -17,7 +17,6 @@ const Navbar = () => {
     }
 
     const handleRedirectHome = () => {
-        console.log("Test")
         if(role === "ADMIN"){
             history.push("/admin/")
         }else if(role === "CLIENT"){
@@ -25,11 +24,18 @@ const Navbar = () => {
         }
     }
 
+    const handleAddAdmins = () => {
+        history.push("/admin/register/admin")
+    }
+
     return (
         <nav className="nav">
             <div className="container d-flex ">
                 <div className="nav-item  ml-auto" onClick={handleRedirectHome}>
                     Home
+                </div>
+                <div className="nav-item" onClick={handleAddAdmins}>
+                    Create an Admin
                 </div>
                 <div className="nav-item nav-user" onClick={handleUserOnClick}>
                     {username}
