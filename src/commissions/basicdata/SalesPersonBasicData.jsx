@@ -234,8 +234,7 @@ const SalesPersonBasicData = () => {
                                 name = "sponserId"
                                 placeholder="Sopnser ID" 
                                 initialValue={salesperson.sponserId} 
-                                reset="FALSE"
-                                required/>
+                                reset="FALSE"/>
                     </div>  
                     <div className="input-group">
                         <Input  type="text" 
@@ -243,8 +242,7 @@ const SalesPersonBasicData = () => {
                                 name = "realestateId"
                                 placeholder="Real Estate ID" 
                                 initialValue={salesperson.realestateId} 
-                                reset="FALSE"
-                                required/>
+                                reset="FALSE"/>
                     </div>  
                     <div className="input-group">
                         <Input  type="number" 
@@ -261,7 +259,8 @@ const SalesPersonBasicData = () => {
                                 name = "username"
                                 placeholder="Username" 
                                 initialValue={salesperson.username} 
-                                reset="FALSE"/>
+                                reset="FALSE"
+                                required/>
                     </div>
                     <div className="input-group">
                         <Input  type="email" 
@@ -269,7 +268,8 @@ const SalesPersonBasicData = () => {
                                 name = "email"
                                 placeholder="Email" 
                                 initialValue={salesperson.email} 
-                                reset="FALSE"/>
+                                reset="FALSE"
+                                required/>
                     </div>                                                                                       
                 </NewSalesperson>
             }
@@ -308,8 +308,7 @@ const SalesPersonBasicData = () => {
                                 name = "sponserId"
                                 placeholder="Sopnser ID" 
                                 initialValue={salesperson.sponserId} 
-                                reset="FALSE"
-                                required/>
+                                reset="FALSE"/>
                     </div>  
                     <div className="input-group">
                         <Input  type="text" 
@@ -317,8 +316,7 @@ const SalesPersonBasicData = () => {
                                 name = "realestateId"
                                 placeholder="Real Estate ID" 
                                 initialValue={salesperson.realestateId} 
-                                reset="FALSE"
-                                required/>
+                                reset="FALSE"/>
                     </div>
                     <div className="input-group">
                         <Input  type="number" 
