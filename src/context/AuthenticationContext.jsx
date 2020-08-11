@@ -71,7 +71,7 @@ export const AuthenticationProvider = ({children}) => {
                 })
             }else{
                 console.log(response)
-                alert(response.message)
+                alert(response)
                 // Logout
                 logOut()
             }
