@@ -6,7 +6,7 @@ export default (state, action) => {
                 logged: true,
                 username: action.payload.user.username,
                 role: action.payload.user.role,
-                salesperson_id: action.payload.user.salesperson
+                salesperson_id: action.payload.user.salesperson                
             }
         case 'LOGOUT':
             return {
@@ -14,14 +14,16 @@ export default (state, action) => {
                 logged: false,
                 username: "",
                 role: "",
-                salesperson_id: ""
+                salesperson_id: "",
+                email: ""
             }
         case 'USER':
             return {
                 ...state,
                 username: action.payload.username,
                 role: action.payload.role,
-                salesperson_id: action.payload.salesperson
+                salesperson_id: action.payload.salesperson,
+                email: action.payload.email
             }
         default:
             return state

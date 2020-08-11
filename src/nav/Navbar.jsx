@@ -28,18 +28,27 @@ const Navbar = () => {
         history.push("/admin/register/admin")
     }
 
+    const handleSettings = () => {
+        history.push("/user/register/settings")
+    }
+
     return (
         <nav className="nav">
             <div className="container d-flex ">
                 <div className="nav-item  ml-auto" onClick={handleRedirectHome}>
                     Home
                 </div>
-                <div className="nav-item" onClick={handleAddAdmins}>
-                    Create an Admin
-                </div>
+                { role === "ADMIN" && 
+                    <div className="nav-item" onClick={handleAddAdmins}>
+                        Create an Admin
+                    </div>
+                }
                 <div className="nav-item nav-user" onClick={handleUserOnClick}>
                     {username}
                     <div className={classname}>
+                        <div className="nav-dropdown-item" onClick={handleSettings}>
+                            Settings
+                        </div>
                         <div className="nav-dropdown-item" onClick={logOut}>
                             Logout
                         </div>

@@ -25,3 +25,9 @@ export function ApiRegisterAdmin(callback, data){
     const endpoint = "/user/create/admin"
     restrictedBackend(method, endpoint, callback, data)
 }
+
+export function ApiUpdateUser(callback, data){
+    const method = "POST"
+    const endpoint = "/user/update"
+    restrictedBackend(method, endpoint, callback, data)
+}

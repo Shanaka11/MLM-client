@@ -138,6 +138,12 @@ body{
 .list-item:hover{
   background-color: #f0f0f0;
 }
+
+.list-item-card:hover{
+  background-color: white !important;
+  cursor: auto !important;
+}
+
 .icon{
   height: 100px;
   width: 100px;

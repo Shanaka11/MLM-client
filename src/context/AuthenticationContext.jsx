@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react"
 import AuthenticationReducer from "./AuthenticationReducer"
-import {ApiAuthenticate, ApiGetUser, ApiRegisterUser, ApiRegisterAdmin} from "../lookups"
+import {ApiAuthenticate, ApiGetUser, ApiRegisterUser, ApiRegisterAdmin, ApiUpdateUser} from "../lookups"
 
 // Initial State
 const initialState = {
@@ -8,6 +8,7 @@ const initialState = {
     // If logged then fetch it if not already there
     username: "",
     role: "",
+    email: "",
     salesperson_id: "",
 }
 
@@ -78,6 +79,14 @@ export const AuthenticationProvider = ({children}) => {
 
     }
 
+    const updateUser = (data) => {
+
+        const handleFrontend = (response, state) => {
+            
+        }
+
+        ApiUpdateUser(handleFrontend, data)
+    }
     return (
         <AuthenticationContext.Provider
             value = {
@@ -86,11 +95,13 @@ export const AuthenticationProvider = ({children}) => {
                     username: state.username,
                     role: state.role,
                     salesperson_id: state.salesperson_id,
+                    email: state.email,
                     logIn,
                     logOut,
                     currentUser,
                     register,
-                    registerAdmin
+                    registerAdmin,
+                    updateUser
                 }
             }
         >
