@@ -1,7 +1,7 @@
 import {ApiAuthenticate, ApiGetUser, ApiRegisterUser, ApiRegisterAdmin} from './authenticationLookups'
 import {ApiCreateSales, ApiGetSales, ApiRemoveSales, ApiUpdateSales,
         ApiCreateSalesperson, ApiGetSalesperson, ApiRemoveSalesperson, ApiUpdateSalesperson,
-        ApiGetConnectedSalespersons, ApiGetSalespersonDetails} from "./commissionsLookup"
+        ApiGetConnectedSalespersons, ApiGetSalespersonDetails, ApiSearchSalesperson, ApiSearchSales} from "./commissionsLookup"
 
 export{
     ApiAuthenticate,
@@ -17,5 +17,7 @@ export{
     ApiUpdateSalesperson,
     ApiGetConnectedSalespersons,
     ApiGetSalespersonDetails,
-    ApiRegisterAdmin
+    ApiRegisterAdmin,
+    ApiSearchSalesperson,
+    ApiSearchSales
 }

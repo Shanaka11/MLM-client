@@ -28,6 +28,11 @@ export default (state, action) => {
                 ...state,
                 salesList: state.salesList.filter(sale => sale.id !== action.payload)
             }
+        case "SEARCSALES":
+            return {
+                ...state,
+                salesList: action.payload
+            }
         case "GETPERSON":
             return {
                 ...state,
@@ -67,6 +72,11 @@ export default (state, action) => {
             return{
                 ...state,
                 salesperson: action.payload
+            }
+        case "SEARCHPERSON":
+            return{
+                ...state,
+                salespersonList: action.payload
             }
         default:
             return state

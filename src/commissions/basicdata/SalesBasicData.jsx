@@ -8,8 +8,8 @@ import {SalesContext} from "../../context"
 
 const SalesBasicData = () => {
 
-    const { salesList, getSales, addSales, removeSales, updateSales} = useContext(SalesContext)
-
+    const { salesList, getSales, addSales, removeSales, updateSales, searchSales} = useContext(SalesContext)
+    const [ search, setSearch ] = useState("")
     // Get Sales
     useEffect(()=>{
         getSales()
@@ -109,6 +109,19 @@ const SalesBasicData = () => {
         handleSalesModal('editSale')
     }
 
+    const handleSearch = (event) => {
+        event.preventDefault()
+        if(search === ""){
+            getSales()
+        }else{
+            searchSales(search)
+        }        
+    }
+
+    const handleOnChange = (event) => {
+        setSearch(event.target.value)
+    }
+
     return (
         <div className="container">
             <div className="d-flex">
@@ -120,10 +133,13 @@ const SalesBasicData = () => {
                 </BtnListHeader>
             </div>
             {/* Search */}
-            <div className="list-search">
-                <input className="input-control list-search-input" type="text"/>
-                <button className="list-btn"><Search className="list-icon"/></button>
-            </div>
+            <form onSubmit={handleSearch} className="list-search">
+                <input  className="input-control list-search-input" 
+                        type="text" 
+                        onChange={handleOnChange} 
+                        value={search}/>
+                <button className="list-btn" type="submit"><Search className="list-icon"/></button>
+            </form>
             {/* List */}
             <div className="list">
                 <div className="list-item">

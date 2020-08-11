@@ -7,8 +7,14 @@ import {SalesContext} from "../../context"
 
 const SalesPersonBasicData = () => {
 
-    const { salespersonList, getSalesperson, addSalesperson, removeSalesperson, updateSalesperson} = useContext(SalesContext)
-
+    const { salespersonList, 
+            getSalesperson, 
+            addSalesperson, 
+            removeSalesperson, 
+            updateSalesperson, 
+            searchSalesperson
+        } = useContext(SalesContext)
+    const [ search, setSearch ] = useState("")
     // Get Sales    
     useEffect(()=>{
         getSalesperson()
@@ -102,6 +108,19 @@ const SalesPersonBasicData = () => {
         handleSalesModal('editSaleperson')
     }    
 
+    const handleSearch = (event) => {
+        event.preventDefault()
+        if(search === ""){
+            getSalesperson()
+        }else{
+            searchSalesperson(search)
+        }        
+    }
+
+    const handleOnChange = (event) => {
+        setSearch(event.target.value)
+    }
+
     return (
         <div className="container">
             <div className="d-flex">
@@ -112,12 +131,15 @@ const SalesPersonBasicData = () => {
                 </BtnListHeader>
             </div>
             {/* Search */}
-            <div className="list-search">
-                <input className="input-control list-search-input" type="text"/>
-                <button className="list-btn"><Search className="list-icon"/></button>
-            </div>
+            <form className="list-search" onSubmit={handleSearch}>
+                <input  className="input-control list-search-input" 
+                        type="text"
+                        onChange={handleOnChange}
+                        value={search}/>
+                <button className="list-btn" type="submit"><Search className="list-icon"/></button>
+            </form>
             {/* List */}
-            <div className="list">
+            <div className="list mb-4">
                 <div className="list-item">
                     <div className="row">
                         <div className="col-2">
@@ -139,7 +161,7 @@ const SalesPersonBasicData = () => {
                             <h5>Realestate ID</h5>
                         </div>
                         <div className="col-1">
-                            <h5>Qualification</h5>
+                            <h5>Qual</h5>
                         </div>                                                
                     </div>
                 </div>

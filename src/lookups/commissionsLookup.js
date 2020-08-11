@@ -16,6 +16,12 @@ export function ApiGetSales(callback){
     restrictedBackend(method, endpoint, callback)
 }
 
+export function ApiSearchSales(callback, data){
+    const method = "GET"
+    const endpoint = "/commissions/sales/search/" + data
+    restrictedBackend(method, endpoint, callback, data)
+}
+
 export function ApiUpdateSales(callback, data){
     const method = "PUT"
     const endpoint = `/commissions/sales/${data.id}/`
@@ -49,6 +55,12 @@ export function ApiGetSalespersonDetails(callback, data){
     const method = "GET"
     const endpoint = "/commissions/salesperson/" + data
 
+    restrictedBackend(method, endpoint, callback)
+}
+
+export function ApiSearchSalesperson(callback, data){
+    const method = "GET"
+    const endpoint = "/commissions/salesperson/search/" + data
     restrictedBackend(method, endpoint, callback)
 }
 

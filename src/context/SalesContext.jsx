@@ -2,7 +2,7 @@ import React, { createContext, useReducer } from "react"
 import SalesReducer from "./SalesReducer"
 import {ApiCreateSales, ApiGetSales, ApiRemoveSales, ApiUpdateSales,
         ApiCreateSalesperson, ApiGetSalesperson, ApiRemoveSalesperson, ApiUpdateSalesperson,
-        ApiGetConnectedSalespersons, ApiGetSalespersonDetails} from "../lookups"
+        ApiGetConnectedSalespersons, ApiGetSalespersonDetails, ApiSearchSalesperson, ApiSearchSales} from "../lookups"
 
 const initialState = {
     salesList: [],
@@ -62,6 +62,34 @@ export const SalesProvider = ({ children }) => {
             }
         }
         ApiGetSalespersonDetails(handleFrontend, data)        
+    }
+    // Search
+    const searchSalesperson = (data) => {
+        const handleFrontend = (response, status) => {
+            if(status === 200){
+                dispatch({
+                    type: "SEARCHPERSON",
+                    payload: response
+                })
+            }else{
+                console.log(response)
+            }
+        }
+        ApiSearchSalesperson(handleFrontend, data)
+    }
+
+    const searchSales = (data) => {
+        const handleFrontend = (response, status) => {
+            if(status === 200){
+                dispatch({
+                    type: "SEARCSALES",
+                    payload: response
+                })
+            }else{
+                console.log(response)
+            }
+        }
+        ApiSearchSales(handleFrontend, data)
     }
     // Add
     const addSales = (data) => {
@@ -193,7 +221,9 @@ export const SalesProvider = ({ children }) => {
                     updateSalesperson,
                     removeSalesperson,
                     getConnectedSalesperson,
-                    getSalespersonDetail
+                    getSalespersonDetail,
+                    searchSalesperson,
+                    searchSales
                 }
             }
         >
