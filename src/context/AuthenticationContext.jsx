@@ -41,6 +41,7 @@ export const AuthenticationProvider = ({children}) => {
                 currentUser()
             }else{
                 console.log(response)
+                alert(response.detail)
             }
         }
 
@@ -70,6 +71,7 @@ export const AuthenticationProvider = ({children}) => {
                 })
             }else{
                 console.log(response)
+                alert(response.message)
                 // Logout
                 logOut()
             }

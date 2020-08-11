@@ -28,6 +28,7 @@ export const SalesProvider = ({ children }) => {
                 })
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
 
@@ -44,6 +45,7 @@ export const SalesProvider = ({ children }) => {
                 })
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
         ApiGetSalesperson(handleFrontend)
@@ -59,6 +61,7 @@ export const SalesProvider = ({ children }) => {
                 getConnectedSalesperson(response.id)
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
         ApiGetSalespersonDetails(handleFrontend, data)        
@@ -73,6 +76,7 @@ export const SalesProvider = ({ children }) => {
                 })
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
         ApiSearchSalesperson(handleFrontend, data)
@@ -87,6 +91,7 @@ export const SalesProvider = ({ children }) => {
                 })
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
         ApiSearchSales(handleFrontend, data)
@@ -104,6 +109,7 @@ export const SalesProvider = ({ children }) => {
                 )
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
 
@@ -122,9 +128,9 @@ export const SalesProvider = ({ children }) => {
                 )
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
-        console.log(data)
         ApiCreateSalesperson(handleFrontend, data)
     }     
     // Update
@@ -140,6 +146,7 @@ export const SalesProvider = ({ children }) => {
                 )
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
         ApiUpdateSales(handleFrontend, data)
@@ -156,6 +163,7 @@ export const SalesProvider = ({ children }) => {
                 )
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
         ApiUpdateSalesperson(handleFrontend, data)
@@ -171,6 +179,7 @@ export const SalesProvider = ({ children }) => {
                 })
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
         ApiRemoveSales(handleFrontend, data.id)
@@ -186,6 +195,7 @@ export const SalesProvider = ({ children }) => {
                 })
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
         ApiRemoveSalesperson(handleFrontend, data.id)
@@ -200,6 +210,7 @@ export const SalesProvider = ({ children }) => {
                 })
             }else{
                 console.log(response)
+                alert(response.message)
             }
         }
         ApiGetConnectedSalespersons(handleFrontend, data)
