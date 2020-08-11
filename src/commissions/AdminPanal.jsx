@@ -31,7 +31,9 @@ const AdminPanal = () => {
             cell: salesperson.cell,
             sponser: salesperson.sponserId,
             realestate_id: salesperson.realestateId,
-            qualification: salesperson.qualification            
+            qualification: salesperson.qualification,
+            username: salesperson.username,  
+            email: salesperson.email          
         }
 
         addSalesperson(data)
@@ -56,7 +58,9 @@ const AdminPanal = () => {
         cell:"",
         sponser:"",
         realestateId:"",
-        qualification: ""
+        qualification: "",
+        username: "",
+        email: ""
     })
 
     const setNew = (name) => {
@@ -216,7 +220,23 @@ const AdminPanal = () => {
                                 placeholder="Qualification" 
                                 initialValue={salesperson.qualification} 
                                 reset="FALSE"/>
-                    </div>                                                                       
+                    </div>
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "username"
+                                placeholder="Username" 
+                                initialValue={salesperson.username} 
+                                reset="FALSE"/>
+                    </div>
+                    <div className="input-group">
+                        <Input  type="email" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "email"
+                                placeholder="Email" 
+                                initialValue={salesperson.email} 
+                                reset="FALSE"/>
+                    </div>                                                                                                               
                 </NewSalesperson>
             }
         </div>

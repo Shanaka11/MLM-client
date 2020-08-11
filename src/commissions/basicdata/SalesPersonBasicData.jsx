@@ -28,7 +28,9 @@ const SalesPersonBasicData = () => {
             cell: salesperson.cell,
             sponser: salesperson.sponserId,
             realestate_id: salesperson.realestateId,  
-            qualification: salesperson.qualification          
+            qualification: salesperson.qualification,
+            username: salesperson.username,  
+            email: salesperson.email           
         }
         addSalesperson(data)
     }
@@ -41,7 +43,7 @@ const SalesPersonBasicData = () => {
             cell: salesperson.cell,
             sponser: salesperson.centerId,
             realestate_id: salesperson.realestateId,
-            qualification: salesperson.qualification              
+            qualification: salesperson.qualification           
         }
         updateSalesperson(data)
     }
@@ -65,7 +67,9 @@ const SalesPersonBasicData = () => {
         cell:"",
         sponserId:"",
         realestateId:"",
-        qualification: ""
+        qualification: "",
+        username: "",
+        email: ""        
     })
 
     const handleSalesModal = (name) => {    
@@ -250,7 +254,23 @@ const SalesPersonBasicData = () => {
                                 initialValue={salesperson.qualification} 
                                 reset="FALSE"
                                 required/>
-                    </div>                                                                         
+                    </div>      
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "username"
+                                placeholder="Username" 
+                                initialValue={salesperson.username} 
+                                reset="FALSE"/>
+                    </div>
+                    <div className="input-group">
+                        <Input  type="email" 
+                                setFinalValue={handleChangeSalesperson} 
+                                name = "email"
+                                placeholder="Email" 
+                                initialValue={salesperson.email} 
+                                reset="FALSE"/>
+                    </div>                                                                                       
                 </NewSalesperson>
             }
             {modalState.editSaleperson && 
