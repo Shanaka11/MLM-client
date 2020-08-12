@@ -41,7 +41,7 @@ const SalesPersonBasicData = () => {
             name: salesperson.name,
             address: salesperson.address,
             cell: salesperson.cell,
-            sponser: salesperson.centerId,
+            sponser: salesperson.sponserId,
             realestate_id: salesperson.realestateId,
             qualification: salesperson.qualification           
         }
@@ -104,11 +104,11 @@ const SalesPersonBasicData = () => {
                 name: item.item.name,
                 address: item.item.address,
                 cell: item.item.cell,
-                sponserId: item.sponser,
-                realestateId: item.realestate_id,
-                qualification: item.qualification
+                sponserId: item.item.sponser,
+                realestateId: item.item.realestate_id,
+                qualification: item.item.qualification
             }
-        })        
+        })     
         handleSalesModal('editSaleperson')
     }    
 
@@ -317,7 +317,7 @@ const SalesPersonBasicData = () => {
                                 placeholder="Real Estate ID" 
                                 initialValue={salesperson.realestateId} 
                                 reset="FALSE"/>
-                    </div>
+                    </div>  
                     <div className="input-group">
                         <Input  type="number" 
                                 setFinalValue={handleChangeSalesperson} 
@@ -326,7 +326,7 @@ const SalesPersonBasicData = () => {
                                 initialValue={salesperson.qualification} 
                                 reset="FALSE"
                                 required/>
-                    </div>                                                 
+                    </div>                                                     
                 </EditSalesperson>
             }            
         </div>
