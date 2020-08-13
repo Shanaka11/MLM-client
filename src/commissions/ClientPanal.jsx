@@ -137,7 +137,7 @@ const ClientPanal = () => {
                                             <p>{item.qualification}</p>
                                         </div>
                                         <div className="col-3">
-                                            <p>{item.total_commission}</p>
+                                            <p>{item.total_individual_commission}</p>
                                         </div>
                                     </div>
                                 </div>      

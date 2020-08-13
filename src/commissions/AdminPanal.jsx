@@ -211,7 +211,8 @@ const AdminPanal = () => {
                                 name = "realestate"
                                 placeholder="Real Estate ID" 
                                 initialValue={salesperson.realestateId} 
-                                reset="FALSE"/>
+                                reset="FALSE"
+                                required/>
                     </div>    
                     <div className="input-group">
                         <Input  type="number" 
