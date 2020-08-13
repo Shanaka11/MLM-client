@@ -107,28 +107,28 @@ const AdminPanal = () => {
         <div className="container">
             <h1>Admin Interface</h1>
             <div className="row margin-t-10">
-                <div className="col-3 d-flex center">
+                <div className="col-12 col-sm-6 col-md-3 mt-4 d-flex center">
                     <BtnCard name="newSale" onClickHandler={setNew}>
                         <AddSales className="icon"/>
                         <h4 className="btn-card-header">Add Sales</h4>
                         <p className="btn-card-desc">Add a New Sale</p>
                     </BtnCard>
                 </div>
-                <div className="col-3 d-flex center">
+                <div className="col-12 col-sm-6 col-md-3 mt-4 d-flex center">
                     <BtnCard name="SalesList" onClickHandler={redirect}>
                         <Sales className="icon"/>
                         <h4 className="btn-card-header">View Sales</h4>
                         <p className="btn-card-desc">Show a list of all sales</p>
                     </BtnCard>
                 </div>
-                <div className="col-3 d-flex center">
+                <div className="col-12 col-sm-6 col-md-3 mt-4 d-flex center">
                     <BtnCard name="newSalespersons" onClickHandler={setNew}>
                         <AddSalespersonI className="icon"/>
                         <h4 className="btn-card-header">Add Salesperson</h4>
                         <p className="btn-card-desc">Add a new Salesperson</p>                        
                     </BtnCard>
                 </div>
-                <div className="col-3 d-flex center">
+                <div className="col-12 col-sm-6 col-md-3 mt-4 mb-4 d-flex center">
                     <BtnCard name="SalespersonList" onClickHandler={redirect}>
                         <Salespersons className="icon"/>
                         <h4 className="btn-card-header">View Salesperson List</h4>
@@ -228,7 +228,8 @@ const AdminPanal = () => {
                                 name = "username"
                                 placeholder="Username" 
                                 initialValue={salesperson.username} 
-                                reset="FALSE"/>
+                                reset="FALSE"
+                                required/>
                     </div>
                     <div className="input-group">
                         <Input  type="email" 
@@ -236,7 +237,8 @@ const AdminPanal = () => {
                                 name = "email"
                                 placeholder="Email" 
                                 initialValue={salesperson.email} 
-                                reset="FALSE"/>
+                                reset="FALSE"
+                                required/>
                     </div>                                                                                                               
                 </NewSalesperson>
             }
