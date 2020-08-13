@@ -75,7 +75,11 @@ const ClientPanal = () => {
                     <div className="row">
                         <div className="col-3">
                             <div className="small">Sponser Name</div>
-                            <div>{salesperson.sponser.name}</div>
+                            {salesperson.sponser ?
+                                <div>{salesperson.sponser.name}</div>
+                                :
+                                <div>Not Sponsered</div>
+                            }
                             <div className="small">Personal Commission</div>
                             <div>{salesperson.total_individual_commission}</div>
                         </div>
