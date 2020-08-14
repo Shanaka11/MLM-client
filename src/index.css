@@ -53,7 +53,7 @@ body{
   margin: 1rem 0;
 }
 
-.d-flex{
+.d-flex-a{
   display: flex;
 }
 
@@ -321,6 +321,10 @@ body{
 .nav-item:hover{
   color: grey
 }
+
+.hamberger-menu{
+  display: none;
+}
 /* List */
 
 .list-icon{
@@ -378,4 +382,35 @@ body{
 .small{
   font-size: small;
   color: gray;
+}
+
+/* Media Queries */
+/* max-width 575px */
+@media screen and (max-width: 575px){
+  .margin-t-10{
+    margin-top: 1.5rem !important;
+  }
+  .nav-nav{
+    display: none !important;
+  } 
+  .hamberger-menu{
+    display: block;
+  }
+  .nav-hamberger{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    border-bottom: 1px solid black;
+    z-index: 1;
+  }
+  .nav-item{
+    /* width: 100%; */
+    /* margin-right: auto; */
+    padding: 20px 10px;
+    background-color: white;
+    z-index: 1;
+  }
 }
