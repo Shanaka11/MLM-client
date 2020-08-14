@@ -437,4 +437,12 @@ body{
   .modal-main{
     width: 100%;
   }
+  /* List - Table */
+  /* Figure out a better way to make the tabels responsive */
+  .col-main{
+    display: block;
+  }
+  .col-add{
+    display: none;
+  }
 }

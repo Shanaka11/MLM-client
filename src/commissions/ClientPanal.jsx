@@ -76,14 +76,10 @@ const ClientPanal = () => {
                         <div className="col-3">
                             <div className="small">Sponser Name</div>
                             <div>{salesperson.sponser.name}</div>
-                            <div className="small">Personal Commission</div>
-                            <div>{salesperson.total_individual_commission}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Qualification</div>
                             <div>{salesperson.qualification}</div>
-                            <div className="small">Group Commission</div>
-                            <div>{salesperson.total_group_commissions}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Total Individual Sales</div>
@@ -93,6 +89,16 @@ const ClientPanal = () => {
                             <div className="small">Total Group Sales</div>
                             <div>{salesperson.total_group_sales}</div>
                         </div>
+                    </div>
+                    <div className="row">
+                        <div className="col-3">
+                            <div className="small">Personal Commission</div>
+                            <div>{salesperson.total_individual_commission}</div>
+                        </div>
+                        <div className="col-3">
+                            <div className="small">Group Commission</div>
+                            <div>{salesperson.total_group_commissions}</div>
+                        </div>                        
                     </div>
                 </div>
             </div>
