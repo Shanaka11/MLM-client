@@ -47,7 +47,9 @@ const Navbar = () => {
                 {/* Hamburger Menu */}
                 <div className="ml-auto hamberger-menu">
                     <div className="nav-item-head" onClick={handleHambergurOnClick}>
-                        Ham
+                        <div className="line"></div>
+                        <div className="line"></div>
+                        <div className="line"></div>
                     </div>
                     {dropdown && 
                     <div className="nav-hamberger">

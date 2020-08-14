@@ -339,6 +339,14 @@ body{
 .hamberger-menu{
   display: none;
 }
+
+.line{
+  width: 30px;
+  height: 3px;
+  background: var(--blue);
+  margin: 8px auto;
+  border-radius: 10px;
+}
 /* List */
 
 .list-icon{
@@ -411,7 +419,9 @@ body{
   } 
   .hamberger-menu{
     display: block;
+    cursor: pointer;
   }
+
   .nav-hamberger{
     display: flex;
     flex-direction: column;
