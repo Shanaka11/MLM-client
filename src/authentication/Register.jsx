@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react'
-import {Input} from '../components'
+import {Input, Checkbox} from '../components'
 import {AuthenticationContext} from '../context'
 import { useHistory } from 'react-router-dom'
 import logo from "../img/logo.png"
@@ -19,6 +19,7 @@ const Register = () => {
         sponser: "",
         realestate_id: "",
         qualification: "",
+        agreed: false
     })
 
     const [step, setStep] = useState(1)
@@ -44,6 +45,16 @@ const Register = () => {
         })        
     }
 
+    const handleAgreed = (event) => {
+        const {value} = event.currentTarget.value
+        setState(prevValue => {
+            return{
+                ...prevValue,
+                agreed: value
+            }
+        })
+    }
+
     const handleRegister = (event) =>{
         event.preventDefault()
 
@@ -54,8 +65,11 @@ const Register = () => {
                 console.log(response)
             }
         }
-
-        register(handleFrontend, state)
+        if(state.agreed) {
+            register(handleFrontend, state)
+        }else{
+            alert("You must agree to the Agreement before registering")
+        }
     }    
 
     return (
@@ -146,7 +160,16 @@ const Register = () => {
                                 placeholder="Qualification" 
                                 initialValue={state.qualification} 
                                 reset="FALSE"/>
-                    </div>   
+                    </div> 
+                    <div className="input-group link">
+                        <p>Read the Agreement</p>
+                    </div>  
+                    <div className="input-group">
+                        <Checkbox   label="I Agree to the Agreement"
+                                    name="agreed"
+                                    initialValue={state.agreed}
+                                    handleChecked={handleChange}/>
+                    </div>                    
                     </>
                     }                                                                                                                                                                                                     
                     <div className="input-group d-flex justify-center">
