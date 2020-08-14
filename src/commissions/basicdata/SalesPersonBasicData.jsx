@@ -146,25 +146,25 @@ const SalesPersonBasicData = () => {
             <div className="list mb-4">
                 <div className="list-item">
                     <div className="row">
-                        <div className="col-2 col-main">
+                        <div className="col-3 col-sm-2 col-main">
                             <h5>ID</h5>
                         </div>
-                        <div className="col-2 col-main">
+                        <div className="col-3 col-sm-2 col-main">
                             <h5>Name</h5>
                         </div>
-                        <div className="col-2 col-add">
+                        <div className="col-sm-2 col-add">
                             <h5>Address</h5>
                         </div>
-                        <div className="col-2 col-add">
+                        <div className="col-sm-2 col-add">
                             <h5>Cell</h5>
                         </div>
-                        <div className="col-2 col-main">
+                        <div className="col-3 col-sm-2 col-main">
                             <h5>Sponser ID</h5>
                         </div>
-                        <div className="col-1 col-main">
+                        <div className="col-3 col-sm-1 col-main">
                             <h5>Realestate ID</h5>
                         </div>
-                        <div className="col-1 col-add">
+                        <div className="col-sm-1 col-add">
                             <h5>Qual</h5>
                         </div>                                                
                     </div>
@@ -173,25 +173,25 @@ const SalesPersonBasicData = () => {
                     return (
                         <div className="list-item" key={index} onClick={handleItemOnClick} data-item={JSON.stringify({item})}>
                             <div className="row">
-                                <div className="col-2">
+                                <div className="col-2 col-main">
                                     <p>{item.id}</p>
                                 </div>
-                                <div className="col-2">
+                                <div className="col-2 col-main">
                                     <p>{item.name}</p>
                                 </div>
-                                <div className="col-2">
+                                <div className="col-2 col-add">
                                     <p>{item.address}</p>
                                 </div>
-                                <div className="col-2">
+                                <div className="col-2 col-add">
                                     <p>{item.cell}</p>
                                 </div>
-                                <div className="col-2">
+                                <div className="col-2 col-main">
                                     <p>{item.sponser}</p>
                                 </div>
-                                <div className="col-1">
+                                <div className="col-1 col-main">
                                     <p>{item.realestate_id}</p>
                                 </div>
-                                <div className="col-1">
+                                <div className="col-1 col-add">
                                     <p>{item.qualification}</p>
                                 </div>                                                                                
                             </div>

@@ -75,31 +75,47 @@ const ClientPanal = () => {
                     <div className="row">
                         <div className="col-3">
                             <div className="small">Sponser Name</div>
-                            <div>{salesperson.sponser.name}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Qualification</div>
-                            <div>{salesperson.qualification}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Total Individual Sales</div>
-                            <div>{salesperson.total_individual_sales}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Total Group Sales</div>
-                            <div>{salesperson.total_group_sales}</div>
                         </div>
                     </div>
                     <div className="row">
                         <div className="col-3">
+                            <div>{salesperson.sponser.name}</div>
+                        </div>
+                        <div className="col-3">
+                            <div>{salesperson.qualification}</div>
+                        </div>
+                        <div className="col-3">
+                            <div>{salesperson.total_individual_sales}</div>
+                        </div>
+                        <div className="col-3">
+                            <div>{salesperson.total_group_sales}</div>
+                        </div>                        
+                    </div>
+                    <div className="row">
+                        <div className="col-3">
                             <div className="small">Personal Commission</div>
-                            <div>{salesperson.total_individual_commission}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Group Commission</div>
-                            <div>{salesperson.total_group_commissions}</div>
                         </div>                        
                     </div>
+                    <div className="row">
+                        <div className="col-3">
+                            <div>{salesperson.total_individual_commission}</div>
+                        </div>
+                        <div className="col-3">
+                            <div>{salesperson.total_group_commissions}</div>
+                        </div>                        
+                    </div> 
                 </div>
             </div>
             <div className="row mt-4">

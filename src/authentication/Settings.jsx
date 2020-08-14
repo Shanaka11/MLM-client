@@ -124,7 +124,7 @@ const Settings = () => {
         <div className="container">
             <h1>Settings</h1>
             <div className="row">
-                <div className="col-3">
+                <div className="col-12 col-md-3 mb-4">
                     <div className="list">
                         <div className="list-item py-4" onClick={handlePanalChange} data-name="user">
                             <div>User</div>
@@ -138,7 +138,7 @@ const Settings = () => {
                         }
                     </div>
                 </div>
-                <div className="col-9">
+                <div className="col-12 col-md-9 mb-4">
                     <div className="list">
                         {/* User Settings */}
                         {state.panal === "user" && 
