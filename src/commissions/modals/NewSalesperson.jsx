@@ -1,6 +1,6 @@
 import React , { useState } from 'react'
 
-const NewSalesperson = ({children, show, handleClose, name, onSubmit}) => {
+const NewSalesperson = ({children, show, handleClose, name, onSubmit, onReset}) => {
     const [step, setStep] = useState(1)
 
     const showHideClassName = show ? "modal display-block" : "modal display-none";
@@ -16,6 +16,12 @@ const NewSalesperson = ({children, show, handleClose, name, onSubmit}) => {
         setStep(2)
         onSubmit()
     }
+
+    const handleReset = (event) => {
+        event.preventDefault()
+        onReset()
+        setStep(1)
+    }    
 
     return (
         <div className={showHideClassName}>
@@ -44,7 +50,7 @@ const NewSalesperson = ({children, show, handleClose, name, onSubmit}) => {
                             </>
                             :
                             <>
-                                <button className="modal-btn" onClick={modalOk}>View Salesperson List</button>                        
+                                <button className="modal-btn" onClick={handleReset}>New Salesperson</button>                        
                             </>
                             }
                         

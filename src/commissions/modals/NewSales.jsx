@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-const AddSales = ({children, show, handleClose, name, onSubmit}) => {
+const AddSales = ({children, show, handleClose, name, onSubmit, onReset}) => {
 
     const [step, setStep] = useState(1)
 
@@ -16,6 +16,12 @@ const AddSales = ({children, show, handleClose, name, onSubmit}) => {
         event.preventDefault()
         onSubmit()
         setStep(2)
+    }
+
+    const handleReset = (event) => {
+        event.preventDefault()
+        onReset()
+        setStep(1)
     }
 
     return (
@@ -45,7 +51,7 @@ const AddSales = ({children, show, handleClose, name, onSubmit}) => {
                             </>
                             :
                             <>
-                                <button className="modal-btn" onClick={modalOk}>View Sales List</button>                        
+                                <button className="modal-btn" onClick={handleReset}>New Sales</button>                        
                             </>
                             }
                         

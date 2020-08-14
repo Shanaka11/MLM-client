@@ -72,6 +72,20 @@ const SalesPersonBasicData = () => {
         email: ""        
     })
 
+    const resetSalesperson = () => {
+        setSalesperson({
+            id: "",
+            name: "",
+            address: "",
+            cell:"",
+            sponserId:"",
+            realestateId:"",
+            qualification: "",
+            username: "",
+            email: ""            
+        })
+    }
+
     const handleSalesModal = (name) => {    
         setModalState(prevValue => {
             return {
@@ -200,7 +214,7 @@ const SalesPersonBasicData = () => {
                 })}             
             </div>
             {modalState.newSalesperson && 
-                <NewSalesperson  name="newSalesperson" show={modalState.newSalesperson} handleClose={handleSalesModal} onSubmit={handleAddSalesperson}>
+                <NewSalesperson  name="newSalesperson" show={modalState.newSalesperson} handleClose={handleSalesModal} onSubmit={handleAddSalesperson} onReset={resetSalesperson}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson}

@@ -95,6 +95,27 @@ const AdminPanal = () => {
         })        
     }
 
+    const resetSales = () => {
+        setSales({
+            salespersonId: "",
+            totalSales: "",
+            commission: ""            
+        })
+    }
+
+    const resetSalesperson = () => {
+        setSalesperson({
+            name: "",
+            address: "",
+            cell:"",
+            sponser:"",
+            realestateId:"",
+            qualification: "",
+            username: "",
+            email: ""
+        })
+    }
+
     const redirect = (name) => {
         if(name === "SalesList"){
             history.push("/admin/sales")
@@ -138,7 +159,7 @@ const AdminPanal = () => {
             </div>
             {/* Add Sales and Salesperson Dialogs */}
             {modal.newSale && 
-                <NewSales name="newSale" show={modal.newSale} handleClose={setNew} onSubmit={handleAddSale}>
+                <NewSales name="newSale" show={modal.newSale} handleClose={setNew} onSubmit={handleAddSale} onReset={resetSales}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}
@@ -169,7 +190,7 @@ const AdminPanal = () => {
                 </NewSales>
             }
             {modal.newSalespersons && 
-                <NewSalesperson  name="newSalespersons" show={modal.newSalespersons} handleClose={setNew} onSubmit={handleAddSalesperson}>
+                <NewSalesperson  name="newSalespersons" show={modal.newSalespersons} handleClose={setNew} onSubmit={handleAddSalesperson} onReset={resetSalesperson}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson}
@@ -208,7 +229,7 @@ const AdminPanal = () => {
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
-                                name = "realestate"
+                                name = "realestateId"
                                 placeholder="Real Estate ID" 
                                 initialValue={salesperson.realestateId} 
                                 reset="FALSE"

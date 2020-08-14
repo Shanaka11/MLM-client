@@ -57,6 +57,15 @@ const SalesBasicData = () => {
         commission: ""
     })
 
+    const resetSales = () => {
+        setSales({
+            saleId: "",
+            salespersonId: "",
+            totalSales: "",
+            commission: ""            
+        })
+    }
+
     const handleSalesModal = (name) => {        
         if(name === "newSale"){
             ResetSales()
@@ -180,7 +189,7 @@ const SalesBasicData = () => {
                 })}         
             </div>
             {modalState.newSale && 
-                <NewSales name="newSale" show={modalState.newSale} handleClose={handleSalesModal} onSubmit={handleAddSale}>
+                <NewSales name="newSale" show={modalState.newSale} handleClose={handleSalesModal} onSubmit={handleAddSale} onReset={resetSales}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}
