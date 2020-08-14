@@ -1,6 +1,7 @@
 import React, {useContext, useState} from 'react'
 import {AuthenticationContext} from "../context"
 import { useHistory } from 'react-router-dom'
+import logo from "../img/logo.png"
 
 const Navbar = () => {
 
@@ -44,6 +45,9 @@ const Navbar = () => {
         <nav className="nav">
             <div className="container d-flex-a ">
                 {/* Add the logo here */}
+                <div className="nav-logo">
+                    <img className="logo" src={logo} alt="Logo"/>
+                </div>
                 {/* Hamburger Menu */}
                 <div className="ml-auto hamberger-menu">
                     <div className="nav-item-head" onClick={handleHambergurOnClick}>

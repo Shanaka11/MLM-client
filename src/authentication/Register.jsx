@@ -20,6 +20,18 @@ const Register = () => {
         qualification: "",
     })
 
+    const [step, setStep] = useState(1)
+
+    const handleNext = (event) => {
+        event.preventDefault()
+        setStep(2)
+    }
+
+    const handlCancle = (event) => {
+        event.preventDefault()
+        setStep(1)
+        history.push("/")
+    }
     const handleChange = (event) => {
         const {name, value} = event.target
 
@@ -47,18 +59,44 @@ const Register = () => {
 
     return (
         <div className="container page-center">
-            <div className="login-card">
-                Register
+            <div className="login-card my-4">
+                <div>
+                    Register
+                </div>                
                 <form onSubmit={handleRegister}>
-                    <div className="input-group">
-                        <Input  type="text" 
-                                setFinalValue={handleChange}
-                                name = "username" 
-                                placeholder="Username" 
-                                initialValue={state.username} 
-                                reset="FALSE"
-                                required/>
-                    </div>
+                    {step === 1 && 
+                    <>
+                        <div className="input-group">
+                            <Input  type="text" 
+                                    setFinalValue={handleChange}
+                                    name = "username" 
+                                    placeholder="Username" 
+                                    initialValue={state.username} 
+                                    reset="FALSE"
+                                    required/>
+                        </div>
+                        <div className="input-group">
+                            <Input  type="password" 
+                                    setFinalValue={handleChange} 
+                                    name = "password"
+                                    placeholder="Password" 
+                                    initialValue={state.password} 
+                                    reset="FALSE"
+                                    required/>
+                        </div>   
+                        <div className="input-group">
+                            <Input  type="email" 
+                                    setFinalValue={handleChange} 
+                                    name = "email"
+                                    placeholder="Email" 
+                                    initialValue={state.email} 
+                                    reset="FALSE"
+                                    required/>
+                        </div>
+                    </>
+                    }
+                    {step === 2 && 
+                    <>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChange}
@@ -67,25 +105,7 @@ const Register = () => {
                                 initialValue={state.first_name} 
                                 reset="FALSE"
                                 required/>
-                    </div>                    
-                    <div className="input-group">
-                        <Input  type="password" 
-                                setFinalValue={handleChange} 
-                                name = "password"
-                                placeholder="Password" 
-                                initialValue={state.password} 
-                                reset="FALSE"
-                                required/>
-                    </div>
-                    <div className="input-group">
-                        <Input  type="email" 
-                                setFinalValue={handleChange} 
-                                name = "email"
-                                placeholder="Email" 
-                                initialValue={state.email} 
-                                reset="FALSE"
-                                required/>
-                    </div>
+                    </div>    
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
@@ -127,9 +147,15 @@ const Register = () => {
                                 placeholder="Qualification" 
                                 initialValue={state.qualification} 
                                 reset="FALSE"/>
-                    </div>                                                                                             
+                    </div>   
+                    </>
+                    }                                                                                                                                                                                                     
                     <div className="input-group d-flex justify-center">
-                        <button className="btn btn-login ml-auto" type="submit">Register</button>
+                        <div className="text-small pointer link" onClick={handlCancle}>Cancel</div>
+                        { step === 1 ?
+                            <button className="btn btn-login ml-auto" onClick={handleNext}>Next</button> :
+                            <button className="btn btn-login ml-auto" type="submit">Register</button> 
+                        }
                     </div>                    
                 </form>
             </div>            

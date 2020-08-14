@@ -58,7 +58,7 @@ const Login = () => {
                                 required/>
                     </div>
                     <div className="input-group d-flex justify-center">
-                        <div className="text-small pointer" onClick={ registerHandle }>Create Account</div>
+                        <div className="text-small pointer link" onClick={ registerHandle }>Create Account</div>
                         <button className="btn btn-login ml-auto" type="submit">Log In</button>
                     </div>                    
                 </form>

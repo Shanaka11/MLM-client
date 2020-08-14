@@ -5,6 +5,7 @@
   --blue: #000055;
   --dark-grey: #333333;
   --light-grey: #999999;
+  --white: #ffffff;
 }
 
 *{
@@ -40,6 +41,10 @@ body{
   width: 400px;
 }
 
+.link:hover{
+  color: var(--green);
+}
+
 .btn{
   padding: 10px 30px;
   border: none;
@@ -52,12 +57,15 @@ body{
 }
 
 .btn-login{
-  background-color: black;
+  width: 170px;
+  /* background-color: black; */
+  background-color: var(--green);
   color: white;
 }
 
 .btn-login:hover, .btn-login:focus{
-  background-color: rgb(61, 61, 61);
+  /* background-color: rgb(61, 61, 61); */
+  background-color: var(--blue);
 }
 
 .input-group{
@@ -80,7 +88,8 @@ body{
 .input-control:focus{
   /* border: 0.5px solid rgb(0, 0, 0); */
   border-width: 2px;
-  border-color: black;
+  /* border-color: black; */
+  border-color: var(--blue);
 }
 
 .input-label{
@@ -135,6 +144,10 @@ body{
 
 .list-search-input{
   width: 100%;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-right: none;
+  outline: var(--blue);
 }
 
 .list{
@@ -172,7 +185,8 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgb(230, 230, 230);
+  /* background-color: rgb(230, 230, 230); */
+  background-color: var(--green);
   cursor: pointer;
   border-radius: 5px;
   transition: 0.2s;
@@ -186,7 +200,8 @@ body{
   flex-direction: column;
   padding-top: 20px;
   align-items: center;
-  background-color: rgb(230, 230, 230);
+  /* background-color: rgb(230, 230, 230); */
+  background-color: var(--blue);
   cursor: pointer;
   border-radius: 5px;
   transition: 0.5s;
@@ -194,12 +209,14 @@ body{
 
 .btn-card-header{
   margin-top: 40px;
-  margin-bottom: 0;  
+  margin-bottom: 0; 
+  color: var(--white); 
 }
 
 .btn-card-desc{
   margin-top: 0;
   font-size: small;
+  color: var(--white);
 }
 
 .margin-t-10{
@@ -263,10 +280,13 @@ body{
   cursor: pointer;
   width: 50%;  
   height: 50px;
+  background-color: var(--green);
+  color: var(--white);
 }
 
 .modal-btn:hover, .modal-btn:focus{
-  background-color: rgb(201, 201, 201);
+  /* background-color: rgb(201, 201, 201); */
+  background-color: var(--blue);
 }
 
 .modal-btn-3{
@@ -277,7 +297,8 @@ body{
   width: 50%;
   height: 8px;
   margin: 1px;  
-  background-color: rgb(224, 224, 224);
+  /* background-color: rgb(224, 224, 224); */
+  background-color: var(--green);
 }
 
 .modal-step-active{
@@ -288,9 +309,12 @@ body{
 /* Nav */
 .nav{
   height: 50px;
-  background-color: rgb(216, 216, 216);
+  /* background-color: rgb(216, 216, 216); */
+  background-color: #ffffff;
   display: flex;
   align-items: center;
+  border: 1px solid #c2c2c2;
+  box-shadow: 0 0 6px #c2c2c2;
 }
 
 .nav-user{
@@ -311,10 +335,12 @@ body{
 
 .nav-dropdown{
   background-color: white;
-  border: 1px solid rgb(209, 209, 209);
+  /* border: 1px solid rgb(209, 209, 209); */
   position: absolute;
   top: 30px;
   right: 0;  
+  border: 1px solid #c2c2c2;
+  box-shadow: 0 0 6px #c2c2c2;
 }
 
 .nav-dropdown-item{
@@ -347,6 +373,11 @@ body{
   margin: 8px auto;
   border-radius: 10px;
 }
+
+.logo{
+  height: 36px;
+  padding: 3px;
+}
 /* List */
 
 .list-icon{
@@ -363,10 +394,14 @@ body{
   border: none;
   outline: none;
   cursor: pointer;
+  background-color: var(--green);
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .list-btn:hover{
-  background-color: rgb(201, 201, 201);
+  /* background-color: rgb(201, 201, 201); */
+  background-color: var(--blue);
 }
 
 .list-header-btn{
@@ -380,7 +415,9 @@ body{
   outline: none;
   cursor: pointer;
   transition: 0.5s;
-  background-color: rgb(223, 223, 223);
+  /* background-color: rgb(223, 223, 223); */
+  background-color: var(--green);
+  color: var(--white);
 }
 
 .list-header-btn-expand{
@@ -394,7 +431,9 @@ body{
   outline: none;
   cursor: pointer;
   transition: 0.1s;
-  background-color: rgb(223, 223, 223);
+  /* background-color: rgb(223, 223, 223); */
+  background-color: var(--blue);
+  color: var(--white);
 }
 
 .text-right{
