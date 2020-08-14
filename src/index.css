@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
+:root{
+  --green: #44aa00;
+  --blue: #000055;
+  --dark-grey: #333333;
+  --light-grey: #999999;
+}
+
 *{
   box-sizing: border-box;
 }
@@ -13,6 +20,7 @@ body{
   margin: 0;
   font-family: 'Roboto', sans-serif;
   background: #ffffff;
+  color: var(--blue);
 }
 
 .page-center{
@@ -95,7 +103,8 @@ body{
 }
 
 .input-control:focus + .input-label {
-  color: black;
+  /* color: black; */
+  color: var(--blue);
 }
 
 .ml-auto{
@@ -272,7 +281,8 @@ body{
 }
 
 .modal-step-active{
-  background-color: black;
+  /* background-color: black; */
+  background-color: var(--blue);
 }
 
 /* Nav */
@@ -418,7 +428,8 @@ body{
   }
   
   .nav-item:hover, .nav-item:focus{
-    color: black
+    /* color: black */
+    color: var(--blue);
   }
 
   .nav-dropdown{
