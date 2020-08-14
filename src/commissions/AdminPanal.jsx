@@ -131,7 +131,7 @@ const AdminPanal = () => {
                 <div className="col-12 col-sm-6 col-md-3 mt-4 d-flex center">
                     <BtnCard name="newSale" onClickHandler={setNew}>
                         <AddSales className="icon"/>
-                        <h4 className="btn-card-header">Add Sales</h4>
+                        <h4 className="btn-card-header">Adicionar Venda</h4>
                         <p className="btn-card-desc">Add a New Sale</p>
                     </BtnCard>
                 </div>
@@ -145,7 +145,7 @@ const AdminPanal = () => {
                 <div className="col-12 col-sm-6 col-md-3 mt-4 d-flex center">
                     <BtnCard name="newSalespersons" onClickHandler={setNew}>
                         <AddSalespersonI className="icon"/>
-                        <h4 className="btn-card-header">Add Salesperson</h4>
+                        <h4 className="btn-card-header">Add a new Salesperson</h4>
                         <p className="btn-card-desc">Add a new Salesperson</p>                        
                     </BtnCard>
                 </div>

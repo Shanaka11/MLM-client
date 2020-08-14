@@ -55,14 +55,15 @@ const Login = () => {
                         <Input  type="password" 
                                 setFinalValue={handleChange} 
                                 name = "password"
-                                placeholder="Password" 
+                                placeholder="Senha" 
                                 initialValue={credentials.password} 
                                 reset="FALSE"
                                 required/>
                     </div>
                     <div className="input-group d-flex justify-center">
                         <div className="text-small pointer link" onClick={ registerHandle }>Create Account</div>
-                        <button className="btn btn-login ml-auto" type="submit">Log In</button>
+                        {/* Log In */}
+                        <button className="btn btn-login ml-auto" type="submit">Entrar</button>
                     </div>                    
                 </form>
             </div>            
