@@ -45,6 +45,10 @@ body{
   color: var(--green);
 }
 
+.login-logo{
+  height: 100px;
+}
+
 .btn{
   padding: 10px 30px;
   border: none;

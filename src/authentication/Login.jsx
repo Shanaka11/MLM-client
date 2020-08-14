@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import {Input} from '../components'
 import {AuthenticationContext} from '../context'
 import { useHistory } from 'react-router-dom'
+import logo from "../img/logo.png"
 
 
 const Login = () => {
@@ -37,7 +38,9 @@ const Login = () => {
     return (
         <div className="container page-center">
             <div className="login-card">
-                Sign In
+                {/* Add the logo */}
+                <img className="login-logo" src={logo} alt="Logo"/>
+                {/* Sign In */}
                 <form onSubmit={handleLogin}>
                     <div className="input-group">
                         <Input  type="text" 

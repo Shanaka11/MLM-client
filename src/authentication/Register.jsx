@@ -2,6 +2,7 @@ import React, { useState, useContext } from 'react'
 import {Input} from '../components'
 import {AuthenticationContext} from '../context'
 import { useHistory } from 'react-router-dom'
+import logo from "../img/logo.png"
 
 const Register = () => {
 
@@ -60,9 +61,7 @@ const Register = () => {
     return (
         <div className="container page-center">
             <div className="login-card my-4">
-                <div>
-                    Register
-                </div>                
+                <img className="login-logo" src={logo} alt="Logo"/>
                 <form onSubmit={handleRegister}>
                     {step === 1 && 
                     <>
