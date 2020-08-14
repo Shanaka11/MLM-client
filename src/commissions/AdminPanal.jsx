@@ -105,7 +105,7 @@ const AdminPanal = () => {
 
     return (
         <div className="container">
-            <h1>Admin Interface</h1>
+            <h1 className="page-header">Admin Interface</h1>
             <div className="row margin-t-10">
                 <div className="col-12 col-sm-6 col-md-3 mt-4 d-flex center">
                     <BtnCard name="newSale" onClickHandler={setNew}>

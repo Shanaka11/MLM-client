@@ -318,7 +318,7 @@ body{
   cursor: pointer;
 }
 
-.nav-item:hover{
+.nav-item:hover, .nav-item:focus{
   color: grey
 }
 
@@ -387,9 +387,11 @@ body{
 /* Media Queries */
 /* max-width 575px */
 @media screen and (max-width: 575px){
+  /* Utility */
   .margin-t-10{
     margin-top: 1.5rem !important;
   }
+  /* Navbar */
   .nav-nav{
     display: none !important;
   } 
@@ -407,10 +409,32 @@ body{
     z-index: 1;
   }
   .nav-item{
-    /* width: 100%; */
-    /* margin-right: auto; */
     padding: 20px 10px;
     background-color: white;
-    z-index: 1;
+  }
+  
+  .nav-item:hover, .nav-item:focus{
+    color: black
+  }
+
+  .nav-dropdown{
+    top: 57px;
+    left: 0;
+    border: none;
+    border-bottom: 1px solid black;
+  }  
+
+  .nav-dropdown-item{
+    width: 100%;
+    padding: 20px 10px;
+    text-align: left;
+  }  
+  /* Pages */
+  .page-header{
+    text-align: center;
+  }
+  /* Modal */
+  .modal-main{
+    width: 100%;
   }
 }
