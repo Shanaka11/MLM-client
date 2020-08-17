@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const Input = ({type, setFinalValue, name, placeholder, initialValue, reset, required}) => { 
+const Input = ({type, setFinalValue, name, placeholder, initialValue, reset, required, pattern, patternText}) => { 
 
     const [value, setValue] = useState(reset === "TRUE" ? "" : (initialValue ? initialValue : ""))
 
@@ -20,6 +20,20 @@ const Input = ({type, setFinalValue, name, placeholder, initialValue, reset, req
 
     return (
         <div>
+            {pattern ? 
+            <input  className="input-control"
+                    name={name} 
+                    type={type} 
+                    placeholder=" "
+                    onChange={handleOnChange}
+                    onKeyDown={handleOnKeyPress}
+                    value={value}
+                    onBlur={handleOnBlur}
+                    step="any"
+                    pattern= {pattern}
+                    title= {patternText}
+                    required={required ? "required" : ""}/>
+            :
             <input  className="input-control"
                     name={name} 
                     type={type} 
@@ -30,6 +44,7 @@ const Input = ({type, setFinalValue, name, placeholder, initialValue, reset, req
                     onBlur={handleOnBlur}
                     step="any"
                     required={required ? "required" : ""}/>
+            }
             <label className="input-label" >{placeholder}</label>            
         </div>
     )

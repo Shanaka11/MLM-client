@@ -53,7 +53,9 @@ const CreateAdmin = () => {
                                 placeholder="ID (CPF)" 
                                 initialValue={state.username} 
                                 reset="FALSE"
-                                required/>
+                                required
+                                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
+                                patternText="must be in xxx.xxx.xxx-xx format" />
                     </div>
                     <div className="input-group">
                         <Input  type="text" 
