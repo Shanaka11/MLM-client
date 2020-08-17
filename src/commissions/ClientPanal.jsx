@@ -95,7 +95,11 @@ const ClientPanal = () => {
                     </div>
                     <div className="row">
                         <div className="col-3">
-                            <div>{salesperson.sponser.name}</div>
+                            {salesperson.sponser ?
+                                <div>{salesperson.sponser.name}</div>
+                                :
+                                <div>Not Sponsered</div>
+                            }
                         </div>
                         <div className="col-3">
                             <div>{salesperson.qualification}</div>
