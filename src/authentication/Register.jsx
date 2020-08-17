@@ -119,7 +119,7 @@ const Register = () => {
                                 reset="FALSE"
                                 required/>
                     </div>    
-                    <div className="input-group">
+                    {/* <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
                                 name = "address"
@@ -127,7 +127,7 @@ const Register = () => {
                                 initialValue={state.address} 
                                 reset="FALSE"
                                 required/>
-                    </div>    
+                    </div>     */}
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
@@ -153,14 +153,14 @@ const Register = () => {
                                 initialValue={state.realestate_id} 
                                 reset="FALSE"/>
                     </div>   
-                    <div className="input-group">
+                    {/* <div className="input-group">
                         <Input  type="number" 
                                 setFinalValue={handleChange} 
                                 name = "qualification"
                                 placeholder="Qualification" 
                                 initialValue={state.qualification} 
                                 reset="FALSE"/>
-                    </div> 
+                    </div>  */}
                     <div className="input-group link">
                         <p>Read the Agreement</p>
                     </div>  

@@ -200,7 +200,7 @@ const AdminPanal = () => {
                                 reset="FALSE"
                                 required/>
                     </div>
-                    <div className="input-group">
+                    {/* <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "address"
@@ -208,7 +208,7 @@ const AdminPanal = () => {
                                 initialValue={salesperson.address} 
                                 reset="FALSE"
                                 required/>
-                    </div>
+                    </div> */}
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
@@ -235,14 +235,14 @@ const AdminPanal = () => {
                                 reset="FALSE"
                                 required/>
                     </div>    
-                    <div className="input-group">
+                    {/* <div className="input-group">
                         <Input  type="number" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "qualification"
                                 placeholder="Qualification" 
                                 initialValue={salesperson.qualification} 
                                 reset="FALSE"/>
-                    </div>
+                    </div> */}
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
