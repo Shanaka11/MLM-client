@@ -30,7 +30,7 @@ const Settings = () => {
                     name: salesperson.name,
                     address: salesperson.address,
                     cell: salesperson.cell,
-                    sponser: salesperson.sponser.id,
+                    sponser: salesperson.sponser ? salesperson.sponser.id : "",
                     realestate_id: salesperson.realestate_id,
                     qualification: salesperson.qualification
                 }
