@@ -46,7 +46,7 @@ const Login = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange}
                                 name = "username" 
-                                placeholder="Username" 
+                                placeholder="ID (CPF)" 
                                 initialValue={credentials.username} 
                                 reset="FALSE"
                                 required/>

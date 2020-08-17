@@ -188,7 +188,7 @@ const SalesPersonBasicData = () => {
                         <div className="list-item" key={index} onClick={handleItemOnClick} data-item={JSON.stringify({item})}>
                             <div className="row">
                                 <div className="col-3 col-sm-2 col-main">
-                                    <p>{item.id}</p>
+                                    <p>{item.salesperson_cpf}</p>
                                 </div>
                                 <div className="col-3 col-sm-2 col-main">
                                     <p>{item.name}</p>
@@ -200,7 +200,7 @@ const SalesPersonBasicData = () => {
                                     <p>{item.cell}</p>
                                 </div>
                                 <div className="col-3 col-sm-2 col-main">
-                                    <p>{item.sponser}</p>
+                                    <p>{item.sponser_cpf}</p>
                                 </div>
                                 <div className="col-3 col-sm-2 col-main">
                                     <p>{item.realestate_id}</p>
@@ -246,7 +246,7 @@ const SalesPersonBasicData = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "sponserId"
-                                placeholder="Sopnser ID" 
+                                placeholder="Sopnser ID (CFP)" 
                                 initialValue={salesperson.sponserId} 
                                 reset="FALSE"/>
                     </div>  
@@ -272,7 +272,7 @@ const SalesPersonBasicData = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "username"
-                                placeholder="Username" 
+                                placeholder="ID (CPF)" 
                                 initialValue={salesperson.username} 
                                 reset="FALSE"
                                 required/>

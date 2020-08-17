@@ -83,7 +83,7 @@ const Register = () => {
                             <Input  type="text" 
                                     setFinalValue={handleChange}
                                     name = "username" 
-                                    placeholder="Username" 
+                                    placeholder="ID (CPF)" 
                                     initialValue={state.username} 
                                     reset="FALSE"
                                     required/>
@@ -141,7 +141,7 @@ const Register = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
                                 name = "sponser"
-                                placeholder="Sponser Id" 
+                                placeholder="Sponser Id (CFP)" 
                                 initialValue={state.sponser} 
                                 reset="FALSE"/>
                     </div> 

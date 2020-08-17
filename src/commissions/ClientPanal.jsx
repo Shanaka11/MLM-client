@@ -69,19 +69,12 @@ const ClientPanal = () => {
     return (
         <div className="container">
             {salesperson && <>
-            <h1>{salesperson.id} - {salesperson.name} </h1>
+            <h1>{salesperson.salesperson_cpf} - {salesperson.name} </h1>
             <div className="list">
                 <div className="list-item">
                     <div className="row">
                         <div className="col-3">
                             <div className="small">Sponser Name</div>
-                            {salesperson.sponser ?
-                                <div>{salesperson.sponser.name}</div>
-                                :
-                                <div>Not Sponsered</div>
-                            }
-                            <div className="small">Personal Commission</div>
-                            <div>{salesperson.total_individual_commission}</div>
                         </div>
                         <div className="col-3">
                             <div className="small">Qualification</div>
@@ -161,7 +154,7 @@ const ClientPanal = () => {
                                 <div className="list-item" key={index} onClick={handleRowOnClick} data-id={item.id} data-name={item.name}>
                                     <div className="row">
                                         <div className="col-3">
-                                            <p>{item.id}</p>
+                                            <p>{item.salesperson_cpf}</p>
                                         </div>
                                         <div className="col-3">
                                             <p>{item.name}</p>

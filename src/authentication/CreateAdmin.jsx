@@ -50,7 +50,7 @@ const CreateAdmin = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange}
                                 name = "username" 
-                                placeholder="Username" 
+                                placeholder="ID (CPF)" 
                                 initialValue={state.username} 
                                 reset="FALSE"
                                 required/>

@@ -234,7 +234,7 @@ const AdminPanal = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "sponser"
-                                placeholder="Sopnser ID" 
+                                placeholder="Sopnser ID (CFP)" 
                                 initialValue={salesperson.sponserId} 
                                 reset="FALSE"/>
                     </div>  
@@ -259,7 +259,7 @@ const AdminPanal = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "username"
-                                placeholder="Username" 
+                                placeholder="ID (CPF)" 
                                 initialValue={salesperson.username} 
                                 reset="FALSE"
                                 required/>

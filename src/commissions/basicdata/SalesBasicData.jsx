@@ -182,7 +182,7 @@ const SalesBasicData = () => {
                                     <p>{item.sales_id}</p>
                                 </div>
                                 <div className="col-3">
-                                    <p>{item.salesperson}</p>
+                                    <p>{item.salesperson_cpf}</p>
                                 </div>
                                 <div className="col-3 text-right">
                                     <p>{item.total}</p>
