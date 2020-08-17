@@ -13,6 +13,7 @@ const CreateAdmin = () => {
         password: "",
         first_name: "",
         email: "",
+        cell: ""
     })
 
     const handleChange = (event) => {
@@ -80,7 +81,16 @@ const CreateAdmin = () => {
                                 initialValue={state.email} 
                                 reset="FALSE"
                                 required/>
-                    </div>                                                                                             
+                    </div>        
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChange} 
+                                name = "cell"
+                                placeholder="Cell" 
+                                initialValue={state.cell} 
+                                reset="FALSE"
+                                required/>
+                    </div>                                                                                                          
                     <div className="input-group d-flex justify-center">
                         <button className="btn btn-login ml-auto" type="submit">Register</button>
                     </div>                    
