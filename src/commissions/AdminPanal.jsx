@@ -19,7 +19,8 @@ const AdminPanal = () => {
         const data = {
             salesperson: sales.salespersonId,
             total: sales.totalSales,
-            commission_perc: sales.commission
+            commission_perc: sales.commission,
+            sales_id: sales.sales_id
         }
         addSales(data)
     }
@@ -49,7 +50,8 @@ const AdminPanal = () => {
     const [sales, setSales] = useState({
         salespersonId: "",
         totalSales: "",
-        commission: ""
+        commission: "",
+        sales_id: ""
     })
 
     const [salesperson, setSalesperson] = useState({
@@ -99,7 +101,8 @@ const AdminPanal = () => {
         setSales({
             salespersonId: "",
             totalSales: "",
-            commission: ""            
+            commission: "",
+            sales_id: ""            
         })
     }
 
@@ -186,7 +189,16 @@ const AdminPanal = () => {
                                 initialValue={sales.commission} 
                                 reset="FALSE"
                                 required/>
-                    </div>                                       
+                    </div> 
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChangeSales} 
+                                name = "sales_id"
+                                placeholder="Sales ID" 
+                                initialValue={sales.sales_id} 
+                                reset="FALSE"
+                                required/>
+                    </div>                                                 
                 </NewSales>
             }
             {modal.newSalespersons && 

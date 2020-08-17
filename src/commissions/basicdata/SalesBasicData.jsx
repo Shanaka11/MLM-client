@@ -20,7 +20,8 @@ const SalesBasicData = () => {
         const data = {
             salesperson: sales.salespersonId,
             total: sales.totalSales,
-            commission_perc: sales.commission
+            commission_perc: sales.commission,
+            sales_id: sales.sales_id
         }
         addSales(data)
     }
@@ -30,7 +31,8 @@ const SalesBasicData = () => {
             id: sales.saleId,
             salesperson: sales.salespersonId,
             total: sales.totalSales,
-            commission_perc: sales.commission
+            commission_perc: sales.commission,
+            sales_id: sales.sales_id
         }
         updateSales(data)
     }
@@ -40,7 +42,8 @@ const SalesBasicData = () => {
             id: sales.saleId,
             salesperson: sales.salespersonId,
             total: sales.totalSales,
-            commission_perc: sales.commission
+            commission_perc: sales.commission,
+            sales_id: sales.sales_id
         }         
         removeSales(data)
     }
@@ -54,7 +57,8 @@ const SalesBasicData = () => {
         saleId: "",
         salespersonId: "",
         totalSales: "",
-        commission: ""
+        commission: "",
+        sales_id: ""
     })
 
     const resetSales = () => {
@@ -62,7 +66,8 @@ const SalesBasicData = () => {
             saleId: "",
             salespersonId: "",
             totalSales: "",
-            commission: ""            
+            commission: "",
+            sales_id: ""            
         })
     }
 
@@ -97,7 +102,8 @@ const SalesBasicData = () => {
                 saleId: "",
                 salespersonId: "",
                 totalSales: "",
-                commission: ""
+                commission: "",
+                sales_id: ""
             }
         })
     }
@@ -112,7 +118,8 @@ const SalesBasicData = () => {
                 "saleId": item.id,
                 "salespersonId": item.salesperson,
                 "totalSales": item.total,
-                "commission": item.commission_perc
+                "commission": item.commission_perc,
+                "sales_id": item.sales_id
             }
         })        
         handleSalesModal('editSale')
@@ -154,7 +161,7 @@ const SalesBasicData = () => {
                 <div className="list-item">
                     <div className="row">
                         <div className="col-3">
-                            <h5>Sale ID</h5>
+                            <h5>Sales ID</h5>
                         </div>
                         <div className="col-3">
                             <h5>Salesperson ID</h5>
@@ -172,7 +179,7 @@ const SalesBasicData = () => {
                         <div className="list-item" key={index} onClick={handleItemOnClick} data-item={JSON.stringify(item)}>
                             <div className="row">
                                 <div className="col-3">
-                                    <p>{item.id}</p>
+                                    <p>{item.sales_id}</p>
                                 </div>
                                 <div className="col-3">
                                     <p>{item.salesperson}</p>
@@ -216,11 +223,20 @@ const SalesBasicData = () => {
                                 initialValue={sales.commission} 
                                 reset="FALSE"
                                 required/>
-                    </div>                                       
+                    </div>
+                    <div className="input-group">
+                        <Input  type="number" 
+                                setFinalValue={handleChangeSales} 
+                                name = "sales_id"
+                                placeholder="Sales ID" 
+                                initialValue={sales.sales_id} 
+                                reset="FALSE"
+                                required/>
+                    </div>                                                      
                 </NewSales>
             }
             {modalState.editSale &&
-                <EditSales name="editSale" show={modalState.editSale} handleClose={handleSalesModal} id={sales.saleId} onDelete={handleDelSale} onSubmit={handleEditSale}>
+                <EditSales name="editSale" show={modalState.editSale} handleClose={handleSalesModal} id={sales.sales_id} onDelete={handleDelSale} onSubmit={handleEditSale}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}
