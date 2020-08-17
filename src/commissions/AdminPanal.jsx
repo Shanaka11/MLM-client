@@ -3,6 +3,8 @@ import {ReactComponent as AddSales} from '../Icons/recurring_subscription.svg'
 import {ReactComponent as Sales} from '../Icons/diary.svg'
 import {ReactComponent as AddSalespersonI} from '../Icons/male_add.svg'
 import {ReactComponent as Salespersons} from '../Icons/contract_agreement.svg'
+import {ReactComponent as Agreement} from '../Icons/handshake.svg'
+import {ReactComponent as Adverts} from '../Icons/online-ads.svg'
 import {BtnCard} from '../components'
 
 import {NewSales, NewSalesperson} from '../commissions/modals'
@@ -159,6 +161,22 @@ const AdminPanal = () => {
                         <p className="btn-card-desc">Show a list of all Salesperson</p>      
                     </BtnCard>
                 </div>                                
+            </div>
+            <div className="row">
+            <div className="col-12 col-sm-6 mt-4 d-flex center">
+                    <BtnCard name="newSale" onClickHandler={setNew}>
+                        <Agreement className="icon"/>
+                        <h4 className="btn-card-header">New Agreement</h4>
+                        <p className="btn-card-desc">Add/Update User Agreement</p>
+                    </BtnCard>
+                </div>
+                <div className="col-12 col-sm-6 mt-4 d-flex center">
+                    <BtnCard name="SalesList" onClickHandler={redirect}>
+                        <Adverts className="icon"/>
+                        <h4 className="btn-card-header">Place Adverts</h4>
+                        <p className="btn-card-desc">Handle Advertiesments</p>
+                    </BtnCard>
+                </div>
             </div>
             {/* Add Sales and Salesperson Dialogs */}
             {modal.newSale && 
