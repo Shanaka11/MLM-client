@@ -3,6 +3,7 @@ import {Input, Checkbox} from '../components'
 import {AuthenticationContext} from '../context'
 import { useHistory } from 'react-router-dom'
 import logo from "../img/logo.png"
+import {ApiGetDocument} from "../lookups"
 
 const Register = () => {
 
@@ -34,6 +35,7 @@ const Register = () => {
         setStep(1)
         history.push("/")
     }
+
     const handleChange = (event) => {
         const {name, value} = event.target
 
@@ -43,6 +45,18 @@ const Register = () => {
                 [name]: value
             }
         })        
+    }
+
+    const handleAgreement = () => {
+        const handleFrontend = (response, status) => {
+            if(status === 200){
+                window.open(response[0].doc)
+            }else{
+                console.log(response)
+                alert(response)
+            }
+        }
+        ApiGetDocument(handleFrontend)
     }
 
     // const handleAgreed = (event) => {
@@ -163,7 +177,7 @@ const Register = () => {
                                 initialValue={state.qualification} 
                                 reset="FALSE"/>
                     </div>  */}
-                    <div className="input-group link">
+                    <div className="input-group link" onClick={handleAgreement}>
                         <p>Read the Agreement</p>
                     </div>  
                     <div className="input-group">
