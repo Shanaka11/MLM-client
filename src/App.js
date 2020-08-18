@@ -4,7 +4,7 @@ import {Navbar} from './nav'
 
 
 import {AdminPanal, ClientPanal} from "./commissions"
-import {SalesBasicData, SalesPersonBasicData} from "./commissions/basicdata"
+import {SalesBasicData, SalesPersonBasicData, AddList} from "./commissions/basicdata"
 
 import { Switch, Route, useHistory} from 'react-router-dom'
 
@@ -45,6 +45,7 @@ function App() {
             <Route path="/admin/" exact component={AdminPanal}/>
             <Route path="/admin/salesperson" exact component={SalesPersonBasicData}/>
             <Route path="/admin/sales" exact component={SalesBasicData}/>
+            <Route path="/admin/adverts" exact component={AddList}/>
             <Route path="/client/" exact component={ClientPanal} />                      
           </SalesProvider>
         </Switch>

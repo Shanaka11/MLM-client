@@ -178,8 +178,10 @@ const AdminPanal = () => {
     const redirect = (name) => {
         if(name === "SalesList"){
             history.push("/admin/sales")
-        }else{
+        }else if(name === 'SalespersonList'){
             history.push("/admin/salesperson")
+        }else if(name === 'newAdd'){
+            history.push("/admin/adverts")
         }
     }
 
@@ -225,7 +227,7 @@ const AdminPanal = () => {
                     </BtnCard>
                 </div>
                 <div className="col-12 col-sm-6 mt-4 d-flex center">
-                    <BtnCard name="newAdd" onClickHandler={setNew}>
+                    <BtnCard name="newAdd" onClickHandler={redirect}>
                         <Adverts className="icon"/>
                         <h4 className="btn-card-header">Place Adverts</h4>
                         <p className="btn-card-desc">Handle Advertiesments</p>
