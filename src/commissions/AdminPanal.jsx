@@ -7,13 +7,13 @@ import {ReactComponent as Agreement} from '../Icons/handshake.svg'
 import {ReactComponent as Adverts} from '../Icons/online-ads.svg'
 import {BtnCard} from '../components'
 
-import {NewSales, NewSalesperson, UploadAgreement} from '../commissions/modals'
+import {NewSales, NewSalesperson, UploadAgreement, UploadAdd} from '../commissions/modals'
 import {Input, FileUpload} from '../components'
 
 import {useHistory} from "react-router-dom"
 import {SalesContext} from "../context"
 
-import {ApiCreateDocument} from '../lookups'
+import {ApiCreateDocument, ApiCreateImage} from '../lookups'
 
 const AdminPanal = () => {
 
@@ -49,9 +49,6 @@ const AdminPanal = () => {
         const data = {
              doc: document.doc
         }
-        // let formData = new FormData()
-        // formData.append('enc-type', 'multipart/form-data')
-        // formData.append('doc', data.doc)
         const handleFrontend = (response, status) => {
             setNew('newAgreement')    
         }
@@ -59,12 +56,24 @@ const AdminPanal = () => {
         ApiCreateDocument(handleFrontend, data)
     }
 
+    const handleAddSubmit = () => {
+        const data = {
+            doc: image.doc
+       }
+       const handleFrontend = (response, status) => {
+           setNew('newAdd')    
+       }
+       
+       ApiCreateImage(handleFrontend, data)        
+    }
+
     let history = useHistory()
 
     const [modal, setModal] = useState({
         newSale: false,
         newSalespersons: false,
-        newAgreement: false
+        newAgreement: false,
+        newAdd: false
     })
 
     const [sales, setSales] = useState({
@@ -78,6 +87,10 @@ const AdminPanal = () => {
         doc: ""
     })
 
+    const [image, setImage] = useState({
+        doc: ""
+    })
+    
     const [salesperson, setSalesperson] = useState({
         name: "",
         address: "",
@@ -130,6 +143,14 @@ const AdminPanal = () => {
                 doc: event.target.files[0]
             }
         })        
+    }
+
+    const handleChangeImage = (event) => {
+        setImage(prevValue => {
+            return {...prevValue,
+            doc: event.target.files[0]
+            }
+        })
     }
 
     const resetSales = () => {
@@ -204,7 +225,7 @@ const AdminPanal = () => {
                     </BtnCard>
                 </div>
                 <div className="col-12 col-sm-6 mt-4 d-flex center">
-                    <BtnCard name="SalesList" onClickHandler={redirect}>
+                    <BtnCard name="newAdd" onClickHandler={setNew}>
                         <Adverts className="icon"/>
                         <h4 className="btn-card-header">Place Adverts</h4>
                         <p className="btn-card-desc">Handle Advertiesments</p>
@@ -335,6 +356,13 @@ const AdminPanal = () => {
                         <FileUpload name="doc" setFinalValue={handleChangeDocument} required/>
                     </div>  
                 </UploadAgreement>
+            }
+            {modal.newAdd && 
+                <UploadAdd name="newAdd" show={modal.newAdd} handleClose={setNew} onSubmit={handleAddSubmit}>
+                    <div className="input-group">
+                        <FileUpload name="image" setFinalValue={handleChangeImage} required/>
+                    </div>                    
+                </UploadAdd>
             }
         </div>
     )

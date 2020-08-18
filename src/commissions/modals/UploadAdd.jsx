@@ -1,6 +1,7 @@
 import React from 'react'
 
-const UploadAgreement = ({children, show, handleClose, name, onSubmit}) => {
+const UploadAdd = ({children, show, handleClose, name, onSubmit}) => {
+
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
     const modalOk = (event) => {
@@ -38,4 +39,4 @@ const UploadAgreement = ({children, show, handleClose, name, onSubmit}) => {
     )
 }
 
-export default UploadAgreement
+export default UploadAdd

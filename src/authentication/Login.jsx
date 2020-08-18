@@ -1,14 +1,17 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import {Input} from '../components'
 import {AuthenticationContext} from '../context'
 import { useHistory } from 'react-router-dom'
 import logo from "../img/logo.png"
+import {ApiGetImages} from "../lookups"
 
 
 const Login = () => {
 
     const { logIn } = useContext(AuthenticationContext)
     const history = useHistory()
+    
+    const [ads, setAds] = useState([])
 
     const [credentials, setCredentials] = useState({
         username : "",
@@ -35,8 +38,25 @@ const Login = () => {
         history.push("/register")
     }
 
+    useEffect(() => {
+
+        const handleFrontend = (response, status) => {
+            let tempList = response
+            setAds(tempList)
+        }
+
+        ApiGetImages(handleFrontend)
+
+    }, [])
+
     return (
         <div className="container page-center">
+            {/* Make an image slider here */}
+            {ads.map((item, index) => {
+                return(
+                    <img key={index} className="login-ads" src={item.doc} alt="Adverts"/>
+                )
+            })}            
             <div className="login-card">
                 {/* Add the logo */}
                 <img className="login-logo" src={logo} alt="Logo"/>
