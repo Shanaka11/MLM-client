@@ -2,7 +2,7 @@ import {ApiAuthenticate, ApiGetUser, ApiRegisterUser, ApiRegisterAdmin, ApiUpdat
 import {ApiCreateSales, ApiGetSales, ApiRemoveSales, ApiUpdateSales,
         ApiCreateSalesperson, ApiGetSalesperson, ApiRemoveSalesperson, ApiUpdateSalesperson,
         ApiGetConnectedSalespersons, ApiGetSalespersonDetails, ApiSearchSalesperson, ApiSearchSales} from "./commissionsLookup"
-
+import {ApiCreateDocument, ApiGetDocument} from './documentLookup'
 export{
     ApiAuthenticate,
     ApiGetUser,
@@ -20,5 +20,7 @@ export{
     ApiRegisterAdmin,
     ApiSearchSalesperson,
     ApiSearchSales,
-    ApiUpdateUser
+    ApiUpdateUser,
+    ApiCreateDocument,
+    ApiGetDocument
 }

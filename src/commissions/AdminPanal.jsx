@@ -7,11 +7,13 @@ import {ReactComponent as Agreement} from '../Icons/handshake.svg'
 import {ReactComponent as Adverts} from '../Icons/online-ads.svg'
 import {BtnCard} from '../components'
 
-import {NewSales, NewSalesperson} from '../commissions/modals'
-import {Input} from '../components'
+import {NewSales, NewSalesperson, UploadAgreement} from '../commissions/modals'
+import {Input, FileUpload} from '../components'
 
 import {useHistory} from "react-router-dom"
 import {SalesContext} from "../context"
+
+import {ApiCreateDocument} from '../lookups'
 
 const AdminPanal = () => {
 
@@ -42,11 +44,27 @@ const AdminPanal = () => {
         addSalesperson(data)
     }
 
+    const handleAgreementSubmit = () => {
+        
+        const data = {
+             doc: document.doc
+        }
+        // let formData = new FormData()
+        // formData.append('enc-type', 'multipart/form-data')
+        // formData.append('doc', data.doc)
+        const handleFrontend = (response, status) => {
+            setNew('newAgreement')    
+        }
+        
+        ApiCreateDocument(handleFrontend, data)
+    }
+
     let history = useHistory()
 
     const [modal, setModal] = useState({
         newSale: false,
-        newSalespersons: false
+        newSalespersons: false,
+        newAgreement: false
     })
 
     const [sales, setSales] = useState({
@@ -54,6 +72,10 @@ const AdminPanal = () => {
         totalSales: "",
         commission: "",
         sales_id: ""
+    })
+
+    const [document, setDocument] = useState({
+        doc: ""
     })
 
     const [salesperson, setSalesperson] = useState({
@@ -95,6 +117,17 @@ const AdminPanal = () => {
             return {
                 ...prevValue,
                 [name]: value
+            }
+        })        
+    }
+
+    const handleChangeDocument = (event) => {
+        // const {name, value} = event.target
+
+        setDocument(prevValue => {
+            return {
+                ...prevValue,
+                doc: event.target.files[0]
             }
         })        
     }
@@ -162,9 +195,9 @@ const AdminPanal = () => {
                     </BtnCard>
                 </div>                                
             </div>
-            <div className="row">
+            <div className="row mb-4">
             <div className="col-12 col-sm-6 mt-4 d-flex center">
-                    <BtnCard name="newSale" onClickHandler={setNew}>
+                    <BtnCard name="newAgreement" onClickHandler={setNew}>
                         <Agreement className="icon"/>
                         <h4 className="btn-card-header">New Agreement</h4>
                         <p className="btn-card-desc">Add/Update User Agreement</p>
@@ -294,6 +327,14 @@ const AdminPanal = () => {
                                 required/>
                     </div>                                                                                                               
                 </NewSalesperson>
+            }
+{/* name="newSalespersons" show={modal.newSalespersons} handleClose={setNew} onSubmit={handleAddSalesperson} onReset={resetSalesperson} */}
+            {modal.newAgreement &&
+                <UploadAgreement name="newAgreement" show={modal.newAgreement} handleClose={setNew} onSubmit={handleAgreementSubmit}>
+                    <div className="input-group">
+                        <FileUpload name="doc" setFinalValue={handleChangeDocument} required/>
+                    </div>  
+                </UploadAgreement>
             }
         </div>
     )

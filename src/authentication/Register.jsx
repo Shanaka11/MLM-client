@@ -45,15 +45,15 @@ const Register = () => {
         })        
     }
 
-    const handleAgreed = (event) => {
-        const {value} = event.currentTarget.value
-        setState(prevValue => {
-            return{
-                ...prevValue,
-                agreed: value
-            }
-        })
-    }
+    // const handleAgreed = (event) => {
+    //     const {value} = event.currentTarget.value
+    //     setState(prevValue => {
+    //         return{
+    //             ...prevValue,
+    //             agreed: value
+    //         }
+    //     })
+    // }
 
     const handleRegister = (event) =>{
         event.preventDefault()

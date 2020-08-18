@@ -17,10 +17,11 @@ const getCookie = (name) => {
 }
 
 // Have the refresh token stored in a cookie with secure and http-only 
-export function backendLookup(method, endpoint, callback, data){
+export function backendLookup(method, endpoint, callback, data, media){
 
         let token = localStorage.getItem("token") ? localStorage.getItem("token") : null
         let jsonData;
+        const formData = new FormData()
         if (data){
             jsonData = JSON.stringify(data)
         }
@@ -29,7 +30,14 @@ export function backendLookup(method, endpoint, callback, data){
     
         xhr.responseType = "json"
         xhr.open(method, url)
-        xhr.setRequestHeader("Content-Type", "application/json")
+        if(media){
+            // xhr.setRequestHeader("Content-Type", "multipart/form-data")
+            console.log(data.doc)
+            // const file = new File(data.doc)
+            formData.append('doc', data.doc)
+        }else{
+            xhr.setRequestHeader("Content-Type", "application/json")
+        }        
         // Check first if the user is already logged in
         // Add CSRF tokens as well
         const csrf = getCookie("csrftoken")
@@ -49,10 +57,15 @@ export function backendLookup(method, endpoint, callback, data){
         xhr.onerror = function(e) {
             callback({"message": "The request was an error"}, 400)
         }
-        xhr.send(jsonData)    
+        if(media){
+            xhr.send(formData)  
+        }else{
+            xhr.send(jsonData)  
+        }
+          
 }
 // Change the method name to something like restrictedBackend
-export function restrictedBackend(method, endpoint, callback, data){
+export function restrictedBackend(method, endpoint, callback, data, media){
     // use the global variable 'token' instead of currToken
     let getNewAccessToken = true
     let token = localStorage.getItem("token") ? localStorage.getItem("token") : null
@@ -86,7 +99,7 @@ export function restrictedBackend(method, endpoint, callback, data){
         }
         xhr.send()
     }else{
-        backendLookup(method, endpoint, callback, data)
+        backendLookup(method, endpoint, callback, data, media)
     }
 
 }
