@@ -41,7 +41,7 @@ export const AuthenticationProvider = ({children}) => {
                 currentUser()
             }else{
                 console.log(response)
-                alert(response.detail)
+                alert(JSON.stringify(response))
             }
         }
 
@@ -71,7 +71,7 @@ export const AuthenticationProvider = ({children}) => {
                 })
             }else{
                 console.log(response)
-                alert(response)
+                alert(JSON.stringify(response))
                 // Logout
                 logOut()
             }
