@@ -4,7 +4,6 @@ import {AuthenticationContext} from '../context'
 import { useHistory } from 'react-router-dom'
 import logo from "../img/logo.png"
 import {ApiGetImages} from "../lookups"
-import {Slide} from 'react-slideshow-image'
 import {ImageSlider} from '../components'
 // import 'react-slideshow-image/dist/styles.css'
 
@@ -67,7 +66,7 @@ const Login = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange}
                                 name = "username" 
-                                placeholder="ID (CPF)" 
+                                placeholder="Numero de CPF" 
                                 initialValue={credentials.username} 
                                 reset="FALSE"
                                 required/>
@@ -82,7 +81,7 @@ const Login = () => {
                                 required/>
                     </div>
                     <div className="input-group d-flex justify-center">
-                        <div className="text-small pointer link" onClick={ registerHandle }>Create Account</div>
+                        <div className="text-small pointer link" onClick={ registerHandle }>Criar Conta</div>
                         {/* Log In */}
                         <button className="btn btn-login ml-auto" type="submit">Entrar</button>
                     </div>                    

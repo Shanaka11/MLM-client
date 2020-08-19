@@ -141,11 +141,11 @@ const SalesBasicData = () => {
     return (
         <div className="container">
             <div className="d-flex">
-                <h1>Sales List</h1>
+                <h1>Lista de Vendas</h1>
                 {/* <button className="list-header-btn-expand ml-auto"><AddSales className="list-header-icon"/><h4 className="ml-4">Add a Sale</h4></button> */}
                 <BtnListHeader onClickHandler={handleSalesModal} name="newSale">
                     <AddSales className="list-header-icon"/>
-                    <h4 className="ml-4">Add a Sale</h4>
+                    <h4 className="ml-4">adicione uma venda</h4>
                 </BtnListHeader>
             </div>
             {/* Search */}
@@ -161,16 +161,16 @@ const SalesBasicData = () => {
                 <div className="list-item">
                     <div className="row">
                         <div className="col-3">
-                            <h5>Sales ID</h5>
+                            <h5>Factura</h5>
                         </div>
                         <div className="col-3">
-                            <h5>Salesperson ID</h5>
+                            <h5>Corrector ID - CPF</h5>
                         </div>
                         <div className="col-3 text-right">
-                            <h5>Total</h5>
+                            <h5>Total da Venda</h5>
                         </div>
                         <div className="col-3 text-right">
-                            <h5>Commission</h5>
+                            <h5>Total de Comissao</h5>
                         </div>
                     </div>
                 </div>
@@ -201,7 +201,7 @@ const SalesBasicData = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}
                                 name = "salespersonId" 
-                                placeholder="Salesperson Id" 
+                                placeholder="Corrector Id" 
                                 initialValue={sales.salespersonId} 
                                 reset="FALSE"
                                 required/>
@@ -210,7 +210,7 @@ const SalesBasicData = () => {
                         <Input  type="number" 
                                 setFinalValue={handleChangeSales} 
                                 name = "totalSales"
-                                placeholder="Total Sales" 
+                                placeholder="Total da Venda" 
                                 initialValue={sales.totalSales} 
                                 reset="FALSE"
                                 required/>
@@ -219,7 +219,7 @@ const SalesBasicData = () => {
                         <Input  type="number" 
                                 setFinalValue={handleChangeSales} 
                                 name = "commission"
-                                placeholder="Commissions" 
+                                placeholder="Total de Comissao" 
                                 initialValue={sales.commission} 
                                 reset="FALSE"
                                 required/>
@@ -228,7 +228,7 @@ const SalesBasicData = () => {
                         <Input  type="number" 
                                 setFinalValue={handleChangeSales} 
                                 name = "sales_id"
-                                placeholder="Sales ID" 
+                                placeholder="Factura" 
                                 initialValue={sales.sales_id} 
                                 reset="FALSE"
                                 required/>
@@ -241,7 +241,7 @@ const SalesBasicData = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}
                                 name = "salespersonId" 
-                                placeholder="Salesperson Id" 
+                                placeholder="Corrector ID" 
                                 initialValue={sales.salespersonId} 
                                 reset="FALSE"
                                 required/>
@@ -250,7 +250,7 @@ const SalesBasicData = () => {
                         <Input  type="number" 
                                 setFinalValue={handleChangeSales} 
                                 name = "totalSales"
-                                placeholder="Total Sales" 
+                                placeholder="Total da Venda" 
                                 initialValue={sales.totalSales} 
                                 reset="FALSE"
                                 required/>
@@ -259,7 +259,7 @@ const SalesBasicData = () => {
                         <Input  type="number" 
                                 setFinalValue={handleChangeSales} 
                                 name = "commission"
-                                placeholder="Commissions" 
+                                placeholder="Total de Comissao" 
                                 initialValue={sales.commission} 
                                 reset="FALSE"
                                 required/>

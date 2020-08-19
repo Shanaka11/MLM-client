@@ -58,21 +58,21 @@ const Navbar = () => {
                     {dropdown && 
                     <div className="nav-hamberger">
                         <div className="nav-item" onClick={handleRedirectHome}>
-                            Home
+                            Casa
                         </div>
                         { role === "ADMIN" && 
                             <div className="nav-item" onClick={handleAddAdmins}>
-                                Create an Admin
+                                Crie um administrador
                             </div>
                         }    
                         <div className="nav-item nav-user" onClick={handleUserOnClick}>
                             {username}
                             <div className={classname}>
                                 <div className="nav-dropdown-item" onClick={handleSettings}>
-                                    Settings
+                                    Configurações
                                 </div>
                                 <div className="nav-dropdown-item" onClick={logOut}>
-                                    Logout
+                                    Sair
                                 </div>
                             </div>
                         </div>                                            
@@ -81,21 +81,21 @@ const Navbar = () => {
                 </div>
                 <div className="nav-nav d-flex-a ml-auto">
                     <div className="nav-item" onClick={handleRedirectHome}>
-                        Home
+                        Casa
                     </div>
                     { role === "ADMIN" && 
                         <div className="nav-item" onClick={handleAddAdmins}>
-                            Create an Admin
+                            Crie um administrador
                         </div>
                     }
                     <div className="nav-item nav-user" onClick={handleUserOnClick}>
                         {username}
                         <div className={classname}>
                             <div className="nav-dropdown-item" onClick={handleSettings}>
-                                Settings
+                                Configurações
                             </div>
                             <div className="nav-dropdown-item" onClick={logOut}>
-                                Logout
+                                Sair
                             </div>
                         </div>
                     </div>

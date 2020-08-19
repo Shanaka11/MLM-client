@@ -193,20 +193,20 @@ const AdminPanal = () => {
                     <BtnCard name="newSale" onClickHandler={setNew}>
                         <AddSales className="icon"/>
                         <h4 className="btn-card-header">Adicionar Venda</h4>
-                        <p className="btn-card-desc">Add a New Sale</p>
+                        <p className="btn-card-desc">Adicionar uma nova promoção</p>
                     </BtnCard>
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 mt-4 d-flex center">
                     <BtnCard name="SalesList" onClickHandler={redirect}>
                         <Sales className="icon"/>
-                        <h4 className="btn-card-header">View Sales</h4>
-                        <p className="btn-card-desc">Show a list of all sales</p>
+                        <h4 className="btn-card-header">Ver Vendas</h4>
+                        <p className="btn-card-desc">Mostra uma lista de todas as vendas</p>
                     </BtnCard>
                 </div>
                 <div className="col-12 col-sm-6 col-md-3 mt-4 d-flex center">
                     <BtnCard name="newSalespersons" onClickHandler={setNew}>
                         <AddSalespersonI className="icon"/>
-                        <h4 className="btn-card-header">Add a new Salesperson</h4>
+                        <h4 className="btn-card-header">Novo Vendedor</h4>
                         <p className="btn-card-desc">Add a new Salesperson</p>                        
                     </BtnCard>
                 </div>
@@ -214,7 +214,7 @@ const AdminPanal = () => {
                     <BtnCard name="SalespersonList" onClickHandler={redirect}>
                         <Salespersons className="icon"/>
                         <h4 className="btn-card-header">View Salesperson List</h4>
-                        <p className="btn-card-desc">Show a list of all Salesperson</p>      
+                        <p className="btn-card-desc">Adicionar um novo vendedor</p>      
                     </BtnCard>
                 </div>                                
             </div>
@@ -222,15 +222,15 @@ const AdminPanal = () => {
             <div className="col-12 col-sm-6 mt-4 d-flex center">
                     <BtnCard name="newAgreement" onClickHandler={setNew}>
                         <Agreement className="icon"/>
-                        <h4 className="btn-card-header">New Agreement</h4>
-                        <p className="btn-card-desc">Add/Update User Agreement</p>
+                        <h4 className="btn-card-header">Novo Acordo</h4>
+                        <p className="btn-card-desc">Adicionar / Atualizar o contrato do usuário</p>
                     </BtnCard>
                 </div>
                 <div className="col-12 col-sm-6 mt-4 d-flex center">
                     <BtnCard name="newAdd" onClickHandler={redirect}>
                         <Adverts className="icon"/>
-                        <h4 className="btn-card-header">Place Adverts</h4>
-                        <p className="btn-card-desc">Handle Advertiesments</p>
+                        <h4 className="btn-card-header">Coloque anúncios</h4>
+                        <p className="btn-card-desc">Lidar com anúncios</p>
                     </BtnCard>
                 </div>
             </div>
@@ -241,7 +241,7 @@ const AdminPanal = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales}
                                 name = "salespersonId" 
-                                placeholder="Salesperson Id" 
+                                placeholder="Corrector Id" 
                                 initialValue={sales.salespersonId} 
                                 reset="FALSE"
                                 required/>
@@ -250,7 +250,7 @@ const AdminPanal = () => {
                         <Input  type="number" 
                                 setFinalValue={handleChangeSales} 
                                 name = "totalSales"
-                                placeholder="Total Sales" 
+                                placeholder="Total da Venda" 
                                 initialValue={sales.totalSales} 
                                 reset="FALSE"
                                 required/>
@@ -259,7 +259,7 @@ const AdminPanal = () => {
                         <Input  type="number" 
                                 setFinalValue={handleChangeSales} 
                                 name = "commission"
-                                placeholder="Commissions" 
+                                placeholder="Total de Comissao" 
                                 initialValue={sales.commission} 
                                 reset="FALSE"
                                 required/>
@@ -268,7 +268,7 @@ const AdminPanal = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSales} 
                                 name = "sales_id"
-                                placeholder="Sales ID" 
+                                placeholder="Factura" 
                                 initialValue={sales.sales_id} 
                                 reset="FALSE"
                                 required/>
@@ -281,7 +281,7 @@ const AdminPanal = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson}
                                 name = "name" 
-                                placeholder="Name" 
+                                placeholder="NomeCompleto" 
                                 initialValue={salesperson.name} 
                                 reset="FALSE"
                                 required/>
@@ -299,7 +299,7 @@ const AdminPanal = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "cell"
-                                placeholder="Cell" 
+                                placeholder="Numero de whatsapp" 
                                 initialValue={salesperson.cell} 
                                 reset="FALSE"
                                 required/>
@@ -308,7 +308,7 @@ const AdminPanal = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "sponser"
-                                placeholder="Sopnser ID (CFP)" 
+                                placeholder="Numero de CFP do recrutador" 
                                 initialValue={salesperson.sponserId} 
                                 reset="FALSE"/>
                     </div>  
@@ -316,7 +316,7 @@ const AdminPanal = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "realestateId"
-                                placeholder="Real Estate ID" 
+                                placeholder="Numero de Corrector" 
                                 initialValue={salesperson.realestateId} 
                                 reset="FALSE"
                                 required/>
@@ -333,7 +333,7 @@ const AdminPanal = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChangeSalesperson} 
                                 name = "username"
-                                placeholder="ID (CPF)" 
+                                placeholder="Numero de CPF" 
                                 initialValue={salesperson.username} 
                                 reset="FALSE"
                                 required

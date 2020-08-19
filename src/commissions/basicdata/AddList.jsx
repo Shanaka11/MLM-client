@@ -104,7 +104,7 @@ const AddList = () => {
                                 </div>
                                 <div className="col-9 col-sm-10 col-main">
                                     <p>{item.doc}</p>
-                                </div>                                                                               
+                                </div>                                                                            
                             </div>
                         </div>  
                     )

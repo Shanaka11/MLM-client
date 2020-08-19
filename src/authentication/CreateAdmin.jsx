@@ -44,13 +44,13 @@ const CreateAdmin = () => {
     return (
         <div className="container page-center">
             <div className="login-card">
-                Register
+                configurações
                 <form onSubmit={handleRegister}>
                     <div className="input-group">
                         <Input  type="text" 
                                 setFinalValue={handleChange}
                                 name = "username" 
-                                placeholder="ID (CPF)" 
+                                placeholder="Numero de CPF" 
                                 initialValue={state.username} 
                                 reset="FALSE"
                                 required
@@ -61,7 +61,7 @@ const CreateAdmin = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange}
                                 name = "name" 
-                                placeholder="Name" 
+                                placeholder="NomeCompleto" 
                                 initialValue={state.first_name} 
                                 reset="FALSE"
                                 required/>
@@ -88,13 +88,13 @@ const CreateAdmin = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
                                 name = "cell"
-                                placeholder="Cell" 
+                                placeholder="Numero de whatsapp" 
                                 initialValue={state.cell} 
                                 reset="FALSE"
                                 required/>
                     </div>                                                                                                          
                     <div className="input-group d-flex justify-center">
-                        <button className="btn btn-login ml-auto" type="submit">Register</button>
+                        <button className="btn btn-login ml-auto" type="submit">Registro</button>
                     </div>                    
                 </form>
             </div>            

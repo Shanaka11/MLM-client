@@ -260,6 +260,11 @@ body{
   cursor: auto !important;
 }
 
+.list-dropdown-icon{
+  height: 10px;
+  border: 1px solid black;
+}
+
 .icon{
   height: 100px;
   width: 100px;

@@ -97,7 +97,7 @@ const Register = () => {
                             <Input  type="text" 
                                     setFinalValue={handleChange}
                                     name = "username" 
-                                    placeholder="ID (CPF)" 
+                                    placeholder="Numero de CPF" 
                                     initialValue={state.username} 
                                     reset="FALSE"
                                     required
@@ -108,7 +108,7 @@ const Register = () => {
                             <Input  type="password" 
                                     setFinalValue={handleChange} 
                                     name = "password"
-                                    placeholder="Password" 
+                                    placeholder="senha" 
                                     initialValue={state.password} 
                                     reset="FALSE"
                                     required/>
@@ -117,7 +117,7 @@ const Register = () => {
                             <Input  type="email" 
                                     setFinalValue={handleChange} 
                                     name = "email"
-                                    placeholder="Email" 
+                                    placeholder="endereço de e-mail" 
                                     initialValue={state.email} 
                                     reset="FALSE"
                                     required/>
@@ -130,7 +130,7 @@ const Register = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange}
                                 name = "name" 
-                                placeholder="Name" 
+                                placeholder="NomeCompleto" 
                                 initialValue={state.first_name} 
                                 reset="FALSE"
                                 required/>
@@ -148,7 +148,7 @@ const Register = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
                                 name = "cell"
-                                placeholder="Cell" 
+                                placeholder="Numero de whatsapp" 
                                 initialValue={state.cell} 
                                 reset="FALSE"
                                 required/>
@@ -157,7 +157,7 @@ const Register = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
                                 name = "sponser"
-                                placeholder="Sponser Id (CFP)" 
+                                placeholder="Numero de CFP do recrutador" 
                                 initialValue={state.sponser} 
                                 reset="FALSE"/>
                     </div> 
@@ -165,7 +165,7 @@ const Register = () => {
                         <Input  type="text" 
                                 setFinalValue={handleChange} 
                                 name = "realestate_id"
-                                placeholder="Realestate Id" 
+                                placeholder="Numero de Corrector" 
                                 initialValue={state.realestate_id} 
                                 reset="FALSE"/>
                     </div>   
@@ -178,10 +178,10 @@ const Register = () => {
                                 reset="FALSE"/>
                     </div>  */}
                     <div className="input-group link" onClick={handleAgreement}>
-                        <p>Read the Agreement</p>
+                        <p>Leia o acordo</p>
                     </div>  
                     <div className="input-group">
-                        <Checkbox   label="I Agree to the Agreement"
+                        <Checkbox   label="Concordo"
                                     name="agreed"
                                     initialValue={state.agreed}
                                     handleChecked={handleChange}/>
@@ -189,10 +189,10 @@ const Register = () => {
                     </>
                     }                                                                                                                                                                                                     
                     <div className="input-group d-flex justify-center">
-                        <div className="text-small pointer link" onClick={handlCancle}>Cancel</div>
+                        <div className="text-small pointer link" onClick={handlCancle}>Cancelar</div>
                         { step === 1 ?
-                            <button className="btn btn-login ml-auto" onClick={handleNext}>Next</button> :
-                            <button className="btn btn-login ml-auto" type="submit">Register</button> 
+                            <button className="btn btn-login ml-auto" onClick={handleNext}>próximo</button> :
+                            <button className="btn btn-login ml-auto" type="submit">Registro</button> 
                         }
                     </div>                    
                 </form>

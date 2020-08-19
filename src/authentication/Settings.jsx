@@ -122,18 +122,18 @@ const Settings = () => {
 
     return (
         <div className="container">
-            <h1>Settings</h1>
+            <h1>configurações</h1>
             <div className="row">
                 <div className="col-12 col-md-3 mb-4">
                     <div className="list">
                         <div className="list-item py-4" onClick={handlePanalChange} data-name="user">
-                            <div>User</div>
-                            <div className="small">Change User account details</div>
+                            <div>do utilizador</div>
+                            <div className="small">Alterar os detalhes da conta do usuário</div>
                         </div>
                         { role === "CLIENT" && 
                             <div className="list-item py-4" onClick={handlePanalChange} data-name="salesperson">
-                                <div>Salesperson</div>
-                                <div className="small">Change Salesperson details</div>
+                                <div>Corrector</div>
+                                <div className="small">Alterar os detalhes do vendedor</div>
                             </div>
                         }
                     </div>
@@ -154,11 +154,11 @@ const Settings = () => {
                                                 required/>
                                     </div>   
                                     <div className="input-group d-flex justify-center">
-                                        <button className="btn btn-login ml-auto" type="submit">Save Changes</button>
+                                        <button className="btn btn-login ml-auto" type="submit">Salvar alterações</button>
                                     </div>                                                                                                 
                                 </form>
                                 <form onSubmit={handlePasswordSubmit}>
-                                    <p>Change the current password</p>
+                                    <p>Alterar a senha atual</p>
                                     <div className="input-group">
                                         <Input  type="password" 
                                                 setFinalValue={handleStateChange}
@@ -169,7 +169,7 @@ const Settings = () => {
                                                 required/>
                                     </div> 
                                     <div className="input-group d-flex justify-center">
-                                        <button className="btn btn-login ml-auto" type="submit">Change Password</button>
+                                        <button className="btn btn-login ml-auto" type="submit">Mudar senha</button>
                                     </div>                                                                   
                                 </form>
                             </div>
@@ -182,12 +182,12 @@ const Settings = () => {
                                         <Input  type="text" 
                                                 setFinalValue={handleStateChange}
                                                 name = "name" 
-                                                placeholder="Name" 
+                                                placeholder="NomeCompleto" 
                                                 initialValue={state.name} 
                                                 reset="FALSE"
                                                 required/>
                                     </div>
-                                    <div className="input-group">
+                                    {/* <div className="input-group">
                                         <Input  type="text" 
                                                 setFinalValue={handleStateChange} 
                                                 name = "address"
@@ -195,12 +195,12 @@ const Settings = () => {
                                                 initialValue={state.address} 
                                                 reset="FALSE"
                                                 required/>
-                                    </div>
+                                    </div> */}
                                     <div className="input-group">
                                         <Input  type="text" 
                                                 setFinalValue={handleStateChange} 
                                                 name = "cell"
-                                                placeholder="Cell" 
+                                                placeholder="Numero de whatsapp" 
                                                 initialValue={state.cell} 
                                                 reset="FALSE"
                                                 required/>
@@ -209,7 +209,7 @@ const Settings = () => {
                                         <Input  type="text" 
                                                 setFinalValue={handleStateChange} 
                                                 name = "sponserId"
-                                                placeholder="Sopnser ID" 
+                                                placeholder="Numero de CFP do recrutador" 
                                                 initialValue={state.sponser} 
                                                 reset="FALSE"
                                                 required/>
@@ -218,12 +218,12 @@ const Settings = () => {
                                         <Input  type="text" 
                                                 setFinalValue={handleStateChange} 
                                                 name = "realestateId"
-                                                placeholder="Real Estate ID" 
+                                                placeholder="Numero de Corrector" 
                                                 initialValue={state.realestate_id} 
                                                 reset="FALSE"
                                                 required/>
                                     </div>  
-                                    <div className="input-group">
+                                    {/* <div className="input-group">
                                         <Input  type="number" 
                                                 setFinalValue={handleStateChange} 
                                                 name = "qualification"
@@ -231,9 +231,9 @@ const Settings = () => {
                                                 initialValue={state.qualification} 
                                                 reset="FALSE"
                                                 required/>
-                                    </div>
+                                    </div> */}
                                     <div className="input-group d-flex justify-center">
-                                        <button className="btn btn-login ml-auto" type="submit">Save Changes</button>
+                                        <button className="btn btn-login ml-auto" type="submit">salvar mudanças</button>
                                     </div>                                  
                                 </form>
                             </div>
