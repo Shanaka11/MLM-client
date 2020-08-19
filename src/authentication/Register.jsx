@@ -25,10 +25,10 @@ const Register = () => {
 
     const [step, setStep] = useState(1)
 
-    const handleNext = (event) => {
-        event.preventDefault()
-        setStep(2)
-    }
+    // const handleNext = (event) => {
+    //     event.preventDefault()
+    //     setStep(2)
+    // }
 
     const handlCancle = (event) => {
         event.preventDefault()
@@ -79,10 +79,14 @@ const Register = () => {
                 console.log(response)
             }
         }
-        if(state.agreed) {
-            register(handleFrontend, state)
+        if(step === 1){
+            setStep(2)
         }else{
-            alert("You must agree to the Agreement before registering")
+            if(state.agreed) {
+                register(handleFrontend, state)
+            }else{
+                alert("You must agree to the Agreement before registering")
+            }
         }
     }    
 
@@ -191,7 +195,8 @@ const Register = () => {
                     <div className="input-group d-flex justify-center">
                         <div className="text-small pointer link" onClick={handlCancle}>Cancelar</div>
                         { step === 1 ?
-                            <button className="btn btn-login ml-auto" onClick={handleNext}>próximo</button> :
+                            // <button className="btn btn-login ml-auto" onClick={handleNext}>próximo</button>
+                            <button className="btn btn-login ml-auto" type='submit'>próximo</button> :
                             <button className="btn btn-login ml-auto" type="submit">Registro</button> 
                         }
                     </div>                    
