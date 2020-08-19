@@ -3,7 +3,7 @@ import {BtnListHeader, Input, FileUpload} from '../../components'
 import {UploadAdd} from '../modals'
 import {ReactComponent as Adverts} from '../../Icons/online-ads.svg'
 import { useState, useEffect } from 'react'
-import {ApiCreateImage, ApiGetImages} from '../../lookups'
+import {ApiCreateImage, ApiGetImages, ApiDelImage} from '../../lookups'
 
 const AddList = () => {
 
@@ -73,7 +73,8 @@ const AddList = () => {
         setState(prevValue => {
             return {
                 ...prevValue,
-                doc: event.target.files ? event.target.files[0] : ""
+                doc: event.target.files ? event.target.files[0] : "",
+                hover_id: -1
             }
         })
     }
@@ -90,6 +91,46 @@ const AddList = () => {
         })
     }
 
+    const handleListItemMouseEnter = (event) => {
+        let item = event.currentTarget.getAttribute("data-item")         
+        item = JSON.parse(item)
+
+        setState(prevValue => {
+            return {
+                ...prevValue,
+                hover_id: item.item.id
+            }
+        })
+    }
+
+    const handleListItemMouseLeave = (event) => {
+        setState(prevValue => {
+            return {
+                ...prevValue,
+                hover_id: -1
+            }
+        })
+    }
+
+    const handleDeleteItem =(event) => {
+        let id = event.target.getAttribute("data-id")
+        id = JSON.parse(id)
+        const handleFrontend = (response, status) => {
+            if(status === 204){
+                let tempList = state.addList.filter(add => add.id !== id)
+                setState(prevValue => {
+                    return {
+                        ...prevValue,
+                        addList: tempList
+                    }
+                })                 
+            }else{
+                alert(JSON.stringify(response))
+            }
+        }
+
+        ApiDelImage(handleFrontend, id)
+    }
     return (
         <>
         <div className="container">            
@@ -106,21 +147,30 @@ const AddList = () => {
                         <div className="col-3 col-sm-2 col-main">
                             <h5>ID</h5>
                         </div>
-                        <div className="col-9 col-sm-10 col-main">
+                        <div className="col-8 col-sm-9 col-main">
                             <h5>Url</h5>
                         </div>                                               
                     </div>
                 </div>
                 {state.addList.map((item, index) => {
                     return (
-                        <div className="list-item" key={index} data-item={JSON.stringify({item})}>
+                        <div    className="list-item" 
+                                key={index} 
+                                data-item={JSON.stringify({item})}
+                                onMouseEnter={handleListItemMouseEnter} 
+                                onMouseLeave={handleListItemMouseLeave}>
                             <div className="row">
                                 <div className="col-3 col-sm-2 col-main">
                                     <p>{item.id}</p>
                                 </div>
-                                <div className="col-9 col-sm-10 col-main">
+                                <div className="col-8 col-sm-9 col-main">
                                     <p>{item.doc}</p>
-                                </div>                                                                            
+                                </div>
+                                {state.hover_id === item.id && 
+                                    <div className="col-1 col-main text-right list-close" data-id={item.id} onClick={handleDeleteItem}>
+                                        x
+                                    </div>          
+                                }                                                                  
                             </div>
                         </div>  
                     )

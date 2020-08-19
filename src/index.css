@@ -668,4 +668,12 @@ body{
   transform: rotate(45deg);
 }
 /* End Checkbox */
+.list-close:hover{
+  color: #000055;
+  transition: 1s;
+}
 
+.list-close:hover{
+  color: red;
+  transition: 1s;
+}

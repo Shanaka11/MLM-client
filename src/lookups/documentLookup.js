@@ -35,5 +35,7 @@ export function ApiGetImage(callback, id){
 }
 
 export function ApiDelImage(callback, id){
-    
+    const method = "DELETE"
+    const endpoint = `/user/ads/${id}/`
+    restrictedBackend(method, endpoint, callback)
 }
