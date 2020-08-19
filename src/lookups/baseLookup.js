@@ -35,6 +35,10 @@ export function backendLookup(method, endpoint, callback, data, media){
             console.log(data.doc)
             // const file = new File(data.doc)
             formData.append('doc', data.doc)
+            if(data.username){
+                formData.append('username', data.username)
+                formData.append('password', data.password)
+            }
         }else{
             xhr.setRequestHeader("Content-Type", "application/json")
         }        

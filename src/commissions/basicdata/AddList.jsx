@@ -10,7 +10,9 @@ const AddList = () => {
     const [state, setState] = useState({
         new_img: false,
         doc: "",
-        addList: []
+        addList: [],
+        username: "",
+        password: ""
     })
 
     useEffect(() => {
@@ -44,7 +46,9 @@ const AddList = () => {
 
     const handleAddSubmit = (event) => {
         const data = {
-            doc: state.doc
+            doc: state.doc,
+            username: state.username,
+            password: state.password
        }
 
        const handleFrontend = (response, status) => {
@@ -70,6 +74,18 @@ const AddList = () => {
             return {
                 ...prevValue,
                 doc: event.target.files ? event.target.files[0] : ""
+            }
+        })
+    }
+
+    const handleChange = (event) => {
+
+        const {name, value} = event.target
+
+        setState(prevValue => {
+            return {
+                ...prevValue,
+                [name]: value 
             }
         })
     }
@@ -114,6 +130,24 @@ const AddList = () => {
                 <UploadAdd name="new_img" show={state.new_img} handleClose={handleAddModal} onSubmit={handleAddSubmit}>
                 <div className="input-group">
                     <FileUpload name="image" setFinalValue={handleChangeImage} required/>
+                    <div className="input-group">
+                        <Input  type="text" 
+                                setFinalValue={handleChange}
+                                name = "username" 
+                                placeholder="Numero de CPF" 
+                                initialValue={state.username} 
+                                reset="FALSE"
+                                required/>
+                    </div>
+                    <div className="input-group">
+                        <Input  type="password" 
+                                setFinalValue={handleChange} 
+                                name = "password"
+                                placeholder="Senha" 
+                                initialValue={state.password} 
+                                reset="FALSE"
+                                required/>
+                    </div>
                 </div>                    
                 </UploadAdd>
             }
