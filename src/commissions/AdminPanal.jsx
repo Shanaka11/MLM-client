@@ -336,9 +336,7 @@ const AdminPanal = () => {
                                 placeholder="Numero de CPF" 
                                 initialValue={salesperson.username} 
                                 reset="FALSE"
-                                required
-                                pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                                patternText="must be in xxx.xxx.xxx-xx format"/>                                
+                                required />                           
                     </div>
                     <div className="input-group">
                         <Input  type="email" 

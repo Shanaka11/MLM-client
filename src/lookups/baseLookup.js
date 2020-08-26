@@ -94,8 +94,12 @@ export function restrictedBackend(method, endpoint, callback, data, media){
         xhr.withCredentials = true     
         xhr.onload = function (){
             // console.log(xhr.response.access)
-            localStorage.setItem("token", xhr.response.access)
-            backendLookup(method, endpoint, callback, data)
+            if(xhr.response.access){
+                localStorage.setItem("token", xhr.response.access)
+                backendLookup(method, endpoint, callback, data)
+            }else{
+                localStorage.removeItem("token")
+            }
         }   
 
         xhr.onerror = function(e) {

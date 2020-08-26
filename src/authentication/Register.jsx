@@ -104,9 +104,7 @@ const Register = () => {
                                     placeholder="Numero de CPF" 
                                     initialValue={state.username} 
                                     reset="FALSE"
-                                    required
-                                    pattern="\d{3}\.\d{3}\.\d{3}-\d{2}"
-                                    patternText="must be in xxx.xxx.xxx-xx format"/>
+                                    required />
                         </div>
                         <div className="input-group">
                             <Input  type="password" 
