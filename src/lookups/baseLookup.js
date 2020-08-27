@@ -94,7 +94,7 @@ export function restrictedBackend(method, endpoint, callback, data, media){
         xhr.withCredentials = true     
         xhr.onload = function (){
             // console.log(xhr.response.access)
-            if(xhr.response.access){
+            if(xhr.response){
                 localStorage.setItem("token", xhr.response.access)
                 backendLookup(method, endpoint, callback, data)
             }else{

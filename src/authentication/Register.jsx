@@ -19,7 +19,7 @@ const Register = () => {
         cell: "",
         sponser: "",
         realestate_id: "",
-        qualification: "",
+        qualification: 0,
         agreed: false
     })
 
