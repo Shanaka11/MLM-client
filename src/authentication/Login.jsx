@@ -40,6 +40,10 @@ const Login = () => {
         history.push("/register")
     }
 
+    const passwordResetHandle = (event) => {
+        history.push("/resetPassword")
+    }
+
     useEffect(() => {
 
         const handleFrontend = (response, status) => {
@@ -84,9 +88,12 @@ const Login = () => {
                         <div className="text-small pointer link" onClick={ registerHandle }>Criar Conta</div>
                         {/* Log In */}
                         <button className="btn btn-login ml-auto" type="submit">Entrar</button>
-                    </div>                    
-                </form>
-            </div>            
+                    </div> 
+                    <div className="input-group d-flex justify-center">
+                        <div className="text-small pointer link" onClick={ passwordResetHandle }>Forgot Password ?</div>
+                    </div>                                    
+                </form>                
+            </div>                    
         </div>
         </>
     )

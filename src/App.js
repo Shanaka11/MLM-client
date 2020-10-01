@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import {Login, Register, CreateAdmin, Settings} from './authentication'
+import {Login, Register, CreateAdmin, Settings, PasswordReset} from './authentication'
 import {Navbar} from './nav'
 
 
@@ -39,7 +39,8 @@ function App() {
         <Switch>
           <Route path="/" exact component={Login} />
           <Route path="/register" exact component={Register} />
-          <Route path="/admin/register/admin" exact component={CreateAdmin} />          
+          <Route path="/admin/register/admin" exact component={CreateAdmin} />        
+          <Route path="/resetPassword" exact component={PasswordReset} />  
           <SalesProvider>
             <Route path="/user/register/settings" exact component={Settings} />
             <Route path="/admin/" exact component={AdminPanal}/>

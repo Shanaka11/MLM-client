@@ -31,3 +31,9 @@ export function ApiUpdateUser(callback, data){
     const endpoint = "/user/update"
     restrictedBackend(method, endpoint, callback, data)
 }
+
+export function ApiReqResetPassword(callback, data){
+    const method = "POST"
+    const endpoint = "/user/request_pw_change"
+    backendLookup(method, endpoint, callback, data)
+}
